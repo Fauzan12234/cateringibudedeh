@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html class="light" lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catering Ibu Dedeh | Beranda</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface": "#f5f5f5", "primary": "#570000", "primary-container": "#800000",
+                        "tertiary": "#705d00", "on-surface": "#1b1c1b", "on-surface-variant": "#5a413d",
+                        "surface-container-low": "#f6f3f1", "surface-container-lowest": "#ffffff",
+                        "surface-container-high": "#e0e0e0", "outline-variant": "#e2bfb9"
+                    },
+                    fontFamily: { "headline": ["Noto Serif"], "body": ["Manrope"], "label": ["Manrope"] },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased">
+    <nav class="sticky top-0 w-full z-50 bg-white border-b border-stone-100 shadow-sm">
+        <div class="flex justify-between items-center w-full px-8 py-4 max-w-6xl mx-auto">
+            <div class="flex items-center gap-3">
+                <img src="media/logo.png" alt="Logo Catering Ibu Dedeh" class="h-10 w-auto object-contain">
+                <div class="text-2xl font-serif font-bold text-red-900"><a href="index.html">Catering Ibu Dedeh</a></div>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-8 font-serif tracking-tight text-lg uppercase">
+                <a href="index.html" class="text-stone-600 hover:text-red-800 transition-colors">Beranda</a>
+                <a href="menu.html" class="text-red-800 font-bold border-b-2 border-red-800 pb-1">Menu</a>
+                <a href="galeri.html" class="text-stone-600 hover:text-red-800 transition-colors">Galeri</a>
+                <a href="kontak.html" class="text-stone-600 hover:text-red-800 transition-colors">Kontak</a>
+            </div>
+            <div class="flex items-center gap-4">
+                <button class="relative p-2 scale-95 duration-200 ease-in-out hover:bg-stone-100 rounded-full cart-toggle-btn">
+                    <span class="material-symbols-outlined text-red-900">shopping_cart</span>
+                    <span id="cart-badge" class="absolute top-0 right-0 bg-tertiary text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full hidden">0</span>
+                </button>
+                <a href="kontak.html" class="hidden md:inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-white text-red-800 border border-red-800 text-sm font-bold transition-all hover:bg-red-50 hover:shadow-md">Hubungi Kami</a>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700 focus:outline-none">
+                    <span class="material-symbols-outlined text-3xl">menu</span>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden bg-white/95 backdrop-blur-md w-full absolute left-0 top-full shadow-lg py-4 px-6">
+            <div class="flex flex-col space-y-4">
+                <a href="index.html" data-page="index" class="nav-link-mobile text-gray-700 font-serif text-lg uppercase py-2">Beranda</a>
+                <a href="menu.html" data-page="menu" class="nav-link-mobile text-primary font-bold font-serif text-lg uppercase py-2">Menu</a>
+                <a href="galeri.html" data-page="galeri" class="nav-link-mobile text-gray-700 font-serif text-lg uppercase py-2">Galeri</a>
+                <a href="kontak.html" data-page="kontak" class="nav-link-mobile text-gray-700 font-serif text-lg uppercase py-2">Kontak</a>
+                <a href="kontak.html" class="bg-primary text-white text-center py-3 rounded-full font-bold mt-2">Hubungi Kami</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img class="w-full h-full object-cover" src="media/hero.jpg" alt="Hero catering">
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
+        <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
+            <h1 class="font-headline text-6xl md:text-8xl text-white mb-6 tracking-tight leading-tight">Catering Ibu Dedeh</h1>
+            <p class="text-white/90 text-xl md:text-3xl font-light mb-12 tracking-wide italic">Warisan Rasa Autentik untuk Momen Istimewa Anda</p>
+            <div class="flex justify-center">
+                <a href="menu.html" class="silk-gradient text-white px-12 py-5 rounded-full font-bold text-xl hover:shadow-2xl hover:scale-105 transition-all duration-300">Lihat Menu</a>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-white/50">
+            <span class="material-symbols-outlined text-4xl">expand_more</span>
+        </div>
+    </section>
+
+    <section class="py-24 bg-surface px-8">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-20">
+                <span class="text-primary font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Layanan Kami</span>
+                <h2 class="font-headline text-4xl md:text-5xl text-on-surface">Pilihan Catering Eksklusif</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-20 h-20 rounded-2xl bg-white flex items-center justify-center mb-8 text-primary shadow-sm">
+                        <span class="material-symbols-outlined text-4xl">lunch_dining</span>
+                    </div>
+                    <h3 class="font-headline text-2xl mb-4">Nasi Box</h3>
+                    <p class="text-on-surface-variant font-light leading-relaxed text-sm">Paket praktis dengan cita rasa istimewa untuk berbagai acara formal maupun santai.</p>
+                </div>
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-20 h-20 rounded-2xl bg-white flex items-center justify-center mb-8 text-primary shadow-sm">
+                        <span class="material-symbols-outlined text-4xl">restaurant</span>
+                    </div>
+                    <h3 class="font-headline text-2xl mb-4">Prasmanan</h3>
+                    <p class="text-on-surface-variant font-light leading-relaxed text-sm">Sajian prasmanan megah dengan menu tradisional pilihan dan pelayanan profesional.</p>
+                </div>
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-20 h-20 rounded-2xl bg-white flex items-center justify-center mb-8 text-primary shadow-sm">
+                        <span class="material-symbols-outlined text-4xl">cookie</span>
+                    </div>
+                    <h3 class="font-headline text-2xl mb-4">Snack Box</h3>
+                    <p class="text-on-surface-variant font-light leading-relaxed text-sm">Koleksi jajanan pasar premium dan kue-kue modern yang diolah segar setiap hari.</p>
+                </div>
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-20 h-20 rounded-2xl bg-white flex items-center justify-center mb-8 text-primary shadow-sm">
+                        <span class="material-symbols-outlined text-4xl">local_bar</span>
+                    </div>
+                    <h3 class="font-headline text-2xl mb-4">Minuman</h3>
+                    <p class="text-on-surface-variant font-light leading-relaxed text-sm">Ragam minuman segar, kopi, dan jus buah asli untuk melengkapi hidangan utama Anda.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white px-8 overflow-hidden border-y border-surface-container">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                <div>
+                    <span class="text-primary font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Menu Unggulan</span>
+                    <h2 class="font-headline text-4xl md:text-5xl text-on-surface">Cita Rasa Favorit</h2>
+                </div>
+                <a href="menu.html" class="text-primary font-bold border-b-2 border-primary/20 hover:border-primary transition-all pb-1">Lihat Semua Menu</a>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <div class="menu-card">
+                    <div class="img-container relative">
+                        <img src="media/menu/paket_unik/tumpeng-mini.jpg" alt="Nasi Kuning Special">
+                        <div class="absolute top-4 right-4 bg-tertiary-fixed text-on-tertiary-fixed px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest z-10 pointer-events-none">Terlaris</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="title-price">
+                            <h3>Nasi Kuning Special</h3>
+                            <span class="price">Rp 45.000</span>
+                        </div>
+                        <p class="desc">Nasi kuning rempah dengan ayam goreng lengkuas, sambal goreng ati, dan pelengkap autentik.</p>
+                        <button class="add-to-cart" data-name="Nasi Kuning Special" data-price="45000">
+                            <span class="material-symbols-outlined text-xl">add_shopping_cart</span>
+                            Tambah ke Keranjang
+                        </button>
+                    </div>
+                </div>
+                <div class="menu-card">
+                    <div class="img-container">
+                        <img src="media/menu/prasmanan/reguler-a.jpg" alt="Rendang Sapi Autentik">
+                    </div>
+                    <div class="card-content">
+                        <div class="title-price">
+                            <h3>Rendang Sapi Autentik</h3>
+                            <span class="price">Rp 65.000</span>
+                        </div>
+                        <p class="desc">Daging sapi pilihan yang dimasak perlahan dengan bumbu rendang warisan selama 8 jam.</p>
+                        <button class="add-to-cart" data-name="Rendang Sapi Autentik" data-price="65000">
+                            <span class="material-symbols-outlined text-xl">add_shopping_cart</span>
+                            Tambah ke Keranjang
+                        </button>
+                    </div>
+                </div>
+                <div class="menu-card">
+                    <div class="img-container relative">
+                        <img src="media/menu/snack/snack-premium.jpg" alt="Premium Snack Box">
+                        <div class="absolute top-4 right-4 bg-primary text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest z-10 pointer-events-none">Favorit</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="title-price">
+                            <h3>Premium Snack Box</h3>
+                            <span class="price">Rp 35.000</span>
+                        </div>
+                        <p class="desc">Kurasi 5 jenis kue tradisional dan modern dengan kemasan eksklusif nan elegan.</p>
+                        <button class="add-to-cart" data-name="Premium Snack Box" data-price="35000">
+                            <span class="material-symbols-outlined text-xl">add_shopping_cart</span>
+                            Tambah ke Keranjang
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-surface px-8 overflow-hidden">
+        <div class="max-w-6xl mx-auto flex flex-col lg:flex-row gap-16 items-center">
+            <div class="w-full lg:w-1/2 relative">
+                <div class="relative rounded-[2rem] overflow-hidden shadow-2xl">
+                    <img class="w-full h-[500px] md:h-[650px] object-cover" src="media/ibu-dedeh.jpg" alt="Ibu Dedeh">
+                </div>
+                <div class="absolute -bottom-6 -right-6 md:-bottom-8 md:-right-8 bg-primary text-white p-8 md:p-10 rounded-3xl shadow-2xl hidden md:block max-w-[280px]">
+                    <p class="font-headline text-xl md:text-2xl leading-relaxed italic">"Rasa adalah doa yang kami sajikan di setiap piring Anda."</p>
+                    <p class="text-tertiary-fixed text-xs md:text-sm mt-4 md:mt-6 font-bold tracking-widest uppercase">— Ibu Dedeh</p>
+                </div>
+            </div>
+            <div class="w-full lg:w-1/2 space-y-8">
+                <span class="text-primary font-bold tracking-[0.2em] uppercase text-xs block">Kisah Kami</span>
+                <h2 class="font-headline text-4xl md:text-5xl lg:text-6xl text-on-surface leading-tight">Tradisi Kuliner yang Dirawat dengan Hati</h2>
+                <div class="space-y-6 text-on-surface-variant text-lg leading-relaxed font-light">
+                    <p>Berawal dari dapur mungil di sudut kota pada tahun 2018, Catering Ibu Dedeh telah tumbuh menjadi simbol kehangatan dan kelezatan hidangan Nusantara. Kami percaya bahwa setiap perayaan layak mendapatkan dedikasi rasa yang sempurna.</p>
+                    <p>Menggunakan bahan-bahan lokal terbaik dan rempah pilihan yang diolah secara tradisional, kami membawa cita rasa masakan rumah ke tingkat profesionalisme yang tinggi. Setiap menu adalah hasil kurasi yang mendalam untuk memastikan kepuasan setiap tamu Anda.</p>
+                </div>
+                <div class="grid grid-cols-2 gap-8 pt-8 border-t border-primary/10">
+                    <div><span class="block text-4xl font-headline text-primary mb-2">25+</span><span class="text-xs uppercase tracking-widest text-on-surface-variant font-bold">Tahun Pengalaman</span></div>
+                    <div><span class="block text-4xl font-headline text-primary mb-2">10rb+</span><span class="text-xs uppercase tracking-widest text-on-surface-variant font-bold">Acara Sukses</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white px-8 border-t border-surface-container">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-primary font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Galeri Visual</span>
+                <h2 class="font-headline text-4xl md:text-5xl text-on-surface">Momen yang Kami Abadikan</h2>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                <div class="aspect-[4/5] overflow-hidden rounded-2xl group shadow-md"><img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" src="media/galeri/event-1.jpg" alt="Wedding"></div>
+                <div class="aspect-[4/5] overflow-hidden rounded-2xl group shadow-md translate-y-4 md:translate-y-8"><img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" src="media/galeri/makanan-1.jpg" alt="Food"></div>
+                <div class="aspect-[4/5] overflow-hidden rounded-2xl group shadow-md"><img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" src="media/galeri/makanan-2.jpg" alt="Dessert"></div>
+                <div class="aspect-[4/5] overflow-hidden rounded-2xl group shadow-md translate-y-4 md:translate-y-8"><img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" src="media/galeri/event-2.jpg" alt="Event"></div>
+            </div>
+            <div class="mt-20 md:mt-24 text-center">
+                <a href="galeri.html" class="border-2 border-primary text-primary px-10 py-4 rounded-full font-bold hover:bg-primary hover:text-white transition-colors duration-300">Lihat Galeri Lengkap</a>
+            </div>
+        </div>
+    </section>
+
+    <div id="cart-drawer" class="fixed inset-0 z-[60] pointer-events-none overflow-hidden">
+        <div class="absolute inset-0 bg-stone-900/40 backdrop-blur-sm opacity-0 transition-opacity duration-500 drawer-overlay"></div>
+        <div class="absolute right-0 top-0 h-full w-full max-w-md bg-white shadow-2xl translate-x-full transition-transform duration-500 ease-in-out p-8 flex flex-col">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="font-headline text-3xl text-primary">Keranjang Belanja</h2>
+                <button class="p-2 hover:bg-stone-100 rounded-full transition-colors close-drawer"><span class="material-symbols-outlined">close</span></button>
+            </div>
+            <div id="cart-items" class="flex-grow overflow-y-auto space-y-6"></div>
+            <div class="mt-8 pt-8 border-t border-outline-variant/30 space-y-4">
+                <div class="flex justify-between items-center text-lg font-bold"><span>Total Estimasi</span><span id="cart-total" class="text-primary text-2xl">Rp 0</span></div>
+                <button id="checkout-wa" class="w-full py-5 silk-gradient text-white rounded-xl font-bold shadow-xl shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-3"><span class="material-symbols-outlined">payments</span> Pesan via WhatsApp</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="success-modal" class="fixed inset-0 z-[70] flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300">
+        <div class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+        <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-sm w-full mx-4 transform scale-95 transition-all duration-300">
+            <div class="flex flex-col items-center text-center">
+                <div class="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mb-4">
+                    <span class="material-symbols-outlined text-green-600 text-4xl">check_circle</span>
+                </div>
+                <h3 class="font-headline text-2xl text-primary mb-2">Berhasil!</h3>
+                <p id="modal-message" class="text-on-surface-variant mb-6">Item ditambahkan ke keranjang</p>
+                <div class="flex items-center gap-3 mb-6">
+                    <div id="loading-spinner" class="w-6 h-6 border-2 border-red-600 border-t-transparent rounded-full animate-spin"></div>
+                    <span class="text-sm text-on-surface-variant">Menutup dalam <span id="countdown">5</span> detik</span>
+                </div>
+                <button id="close-modal-btn" class="px-6 py-2 bg-primary text-white rounded-full font-bold hover:bg-primary-container transition-colors">Tutup</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-red-950 text-white pt-24 pb-12">
+        <div class="max-w-6xl mx-auto px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
+                <div class="space-y-6">
+                    <div class="font-serif italic text-3xl text-white">Catering Ibu Dedeh</div>
+                    <p class="font-sans text-white text-sm leading-loose tracking-wide opacity-80">Menyajikan kebahagiaan melalui setiap hidangan sejak 2018. Dedikasi kami adalah pada kualitas, rasa, dan pelayanan katering premium di Indonesia.</p>
+                </div>
+                <div>
+                    <h4 class="font-serif text-2xl mb-8 text-white">Navigasi</h4>
+                    <ul class="space-y-4 font-sans text-sm tracking-wide">
+                        <li><a href="index.html" class="text-white hover:opacity-100 opacity-80 transition-opacity">Beranda</a></li>
+                        <li><a href="menu.html" class="text-white hover:opacity-100 opacity-80 transition-opacity">Menu</a></li>
+                        <li><a href="galeri.html" class="text-white hover:opacity-100 opacity-80 transition-opacity">Galeri</a></li>
+                        <li><a href="kontak.html" class="text-white hover:opacity-100 opacity-80 transition-opacity">Kontak</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-serif text-2xl mb-8 text-white">Media Sosial</h4>
+                    <ul class="space-y-4 font-sans text-sm tracking-wide">
+                        <li><a href="https://www.instagram.com/cateringibudedeh" target="_blank" class="text-white hover:opacity-100 opacity-80 transition-opacity flex items-center gap-3"><span class="material-symbols-outlined text-base">photo_camera</span> Instagram</a></li>
+                        <li><a href="https://www.tiktok.com/@cateringibudedeh" target="_blank" class="text-white hover:opacity-100 opacity-80 transition-opacity flex items-center gap-3"><span class="material-symbols-outlined text-base">video_library</span> TikTok</a></li>
+                        <li><a href="https://wa.me/628978613607" target="_blank" class="text-white hover:opacity-100 opacity-80 transition-opacity flex items-center gap-3"><span class="material-symbols-outlined text-base">chat</span> WhatsApp</a></li>
+                    </ul>
+                </div>
+                <div class="space-y-8">
+                    <h4 class="font-serif text-2xl mb-2 text-white">Pesan Sekarang</h4>
+                    <p class="text-white text-sm font-sans tracking-wide mb-6 opacity-80">Konsultasikan acara Anda secara gratis bersama tim kami.</p>
+                    <a href="https://wa.me/628978613607" target="_blank" class="inline-flex items-center gap-3 bg-white text-red-950 px-8 py-4 rounded-xl font-bold text-base hover:bg-stone-100 transition-all shadow-lg hover:-translate-y-1"><span class="material-symbols-outlined">chat</span> Hubungi via WhatsApp</a>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-white/10 text-center">
+                <p class="text-white text-sm tracking-widest font-sans opacity-60">© 2024 CATERING IBU DEDEH. TRADISI DALAM SETIAP RASA.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
