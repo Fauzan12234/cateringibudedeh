@@ -204,8 +204,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ========== MENU DATA ==========
+    // ========== MENU DATA (DIPERBARUI: AQIQAH & SNACK DIHAPUS, TUMPENG MINI DIPINDAH) ==========
     const menuItems = [
+        // Prasmanan (Tanpa detail)
         { name: "Paket Reguler A", category: "prasmanan", price: 41000, desc: "Nasi, Ayam Goreng/Bakar, Tahu Tempe, Lalapan, Sambel, Kerupuk", imgMain: "media/menu/prasmanan/reguler-a.jpg", imgDetail: null },
         { name: "Paket Reguler B", category: "prasmanan", price: 42000, desc: "Nasi, Ayam Goreng/Bakar, Capcay, Tahu Tempe, Lalapan, Sambel", imgMain: "media/menu/prasmanan/reguler-b.jpg", imgDetail: null },
         { name: "Paket Reguler C", category: "prasmanan", price: 50000, desc: "Nasi, Ayam Bakar/Goreng, Ikan Asin, Tahu Tempe, Lalapan, Sambel", imgMain: "media/menu/prasmanan/reguler-c.jpg", imgDetail: null },
@@ -214,6 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: "Paket Platinum F", category: "prasmanan", price: 90000, desc: "Nasi, Ayam Bakakak, Ikan Gurame Bakar, Tahu Tempe, Sayur Asem, Sambel", imgMain: "media/menu/prasmanan/platinum-f.jpg", imgDetail: null },
         { name: "Paket Platinum G", category: "prasmanan", price: 99000, desc: "Nasi, Ayam Bakakak, Udang Bakar, Tahu Tempe, Sayur Asem, Sambel", imgMain: "media/menu/prasmanan/platinum-g.jpg", imgDetail: null },
         
+        // Nasi Box
         { name: "Paket Hemat Styrofoam", category: "nasibox", price: 22000, desc: "Nasi, Ayam bakar/goreng, Tempe, Lalapan, Sambel", imgMain: "media/menu/nasibox/hemat-styrofoam.jpg", imgDetail: "media/menu/nasibox/hemat-styrofoam-detail.png" },
         { name: "Nasi Box Reguler Paket 1", category: "nasibox", price: 25000, desc: "Nasi, Ayam Bakar, Tempe/Tahu, Lalapan, Sambel", imgMain: "media/menu/nasibox/reguler-1.jpg", imgDetail: "media/menu/nasibox/reguler-1-detail.png" },
         { name: "Nasi Box Reguler Paket 2", category: "nasibox", price: 27000, desc: "Nasi liwet bakar, Ayam Bakar, tempe/tahu, Lalapan, Sambel", imgMain: "media/menu/nasibox/reguler-2.jpg", imgDetail: "media/menu/nasibox/reguler-2-detail.png" },
@@ -223,28 +225,19 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: "Nasi Besek Premium Paket 3", category: "nasibox", price: 40000, desc: "Nasi, Ayam Bakar, Tempe, Tahu, Ikan Asin cumi, Lalapan, Sambel", imgMain: "media/menu/nasibox/besek-premium-3.jpg", imgDetail: "media/menu/nasibox/besek-premium-3-detail.jpg" },
         { name: "Nasi Besek Premium Paket 4", category: "nasibox", price: 40000, desc: "Nasi liwet teri, Ayam Goreng, Tempe, Tahu, Ikan teri balado, Telur asin, Lalapan, Sambel", imgMain: "media/menu/nasibox/besek-premium-4.jpg", imgDetail: "media/menu/nasibox/besek-premium-4-detail.jpg" },
         
+        // Tumpengan & Liwetan (Tumpeng Mini sekarang masuk sini)
         { name: "Paket Tumpeng Reguler", category: "tumpengan", price: 350000, desc: "10 pax: Rp 350.000 | 20 pax: Rp 650.000 | 30 pax: Rp 950.000", imgMain: "media/menu/tumpengan/reguler-1.jpg", imgDetail: "media/menu/tumpengan/reguler-1-detail.png" },
         { name: "Tumpeng Premium Paket 1", category: "tumpengan", price: 400000, desc: "10 pax: Rp 400.000 | 20 pax: Rp 800.000 | 30 pax: Rp 1.150.000", imgMain: "media/menu/tumpengan/premium-1.jpg", imgDetail: "media/menu/tumpengan/premium-1-detail.jpg" },
         { name: "Tumpeng Premium Paket 2", category: "tumpengan", price: 400000, desc: "10 pax: Rp 400.000 | 20 pax: Rp 800.000 | 30 pax: Rp 1.150.000", imgMain: "media/menu/tumpengan/premium-2.jpg", imgDetail: "media/menu/tumpengan/premium-2-detail.jpg" },
         { name: "Tumpeng Premium Paket 3", category: "tumpengan", price: 400000, desc: "10 pax: Rp 400.000 | 20 pax: Rp 800.000 | 30 pax: Rp 1.150.000", imgMain: "media/menu/tumpengan/premium-3.jpg", imgDetail: "media/menu/tumpengan/premium-3-detail.jpg" },
         { name: "Liwetan Tampah Paket 1", category: "tumpengan", price: 400000, desc: "10 pax: Rp 400.000 | 20 pax: Rp 800.000 | 30 pax: Rp 1.200.000", imgMain: "media/menu/tumpengan/liwetan-1.jpg", imgDetail: "media/menu/tumpengan/liwetan-1-detail.png" },
         { name: "Liwetan Tampah Paket 2", category: "tumpengan", price: 400000, desc: "10 pax: Rp 400.000 | 20 pax: Rp 800.000 | 30 pax: Rp 1.200.000", imgMain: "media/menu/tumpengan/liwetan-2.jpg", imgDetail: "media/menu/tumpengan/liwetan-2-detail.png" },
-        
-        { name: "Paket Tumpeng Mini", category: "paket_unik", price: 30000, desc: "Nasi kuning, Ayam Bakar/Goreng, Perkedel kentang, Telur balado, Kering tempe, Mie goreng", imgMain: "media/menu/paket_unik/tumpeng-mini.jpg", imgDetail: "media/menu/paket_unik/tumpeng-mini-detail.png" },
-        
-        { name: "Aqiqah Reguler Laki-Laki", category: "aqiqah", price: 4800000, desc: "2 kambing betina, 100 pax, lengkap dengan nasi box", imgMain: "media/menu/aqiqah/reguler-laki.jpg", imgDetail: null },
-        { name: "Aqiqah Reguler Perempuan", category: "aqiqah", price: 2600000, desc: "1 kambing betina, 50 pax, lengkap dengan nasi box", imgMain: "media/menu/aqiqah/reguler-perempuan.jpg", imgDetail: null },
-        { name: "Aqiqah Premium Laki-Laki", category: "aqiqah", price: 5500000, desc: "2 kambing betina, 100 pax, menu premium", imgMain: "media/menu/aqiqah/premium-laki.jpg", imgDetail: null },
-        { name: "Aqiqah Premium Perempuan", category: "aqiqah", price: 3000000, desc: "1 kambing betina, 50 pax, menu premium", imgMain: "media/menu/aqiqah/premium-perempuan.jpg", imgDetail: null },
-        
-        { name: "Paket Snack Box", category: "snack", price: 25000, desc: "Kue basah & kering pilihan, air mineral", imgMain: "media/menu/snack/snack-box.jpg", imgDetail: null },
-        { name: "Paket Snack Premium", category: "snack", price: 35000, desc: "Pastry, pudding, buah, jus", imgMain: "media/menu/snack/snack-premium.jpg", imgDetail: null },
+        { name: "Paket Tumpeng Mini", category: "tumpengan", price: 30000, desc: "Nasi kuning, Ayam Bakar/Goreng, Perkedel kentang, Telur balado, Kering tempe, Mie goreng", imgMain: "media/menu/paket_unik/tumpeng-mini.jpg", imgDetail: "media/menu/paket_unik/tumpeng-mini-detail.png" }
     ];
 
     const categories = [...new Set(menuItems.map(item => item.category))];
     const categoryNames = {
-        'prasmanan': 'Prasmanan', 'nasibox': 'Nasi Box', 'tumpengan': 'Tumpengan & Liwetan',
-        'paket_unik': 'Paket Unik', 'aqiqah': 'Aqiqah', 'snack': 'Snack',
+        'prasmanan': 'Prasmanan', 'nasibox': 'Nasi Box', 'tumpengan': 'Tumpengan & Liwetan'
     };
 
     // Render filter buttons (menu.html)
@@ -296,6 +289,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         ${item.imgDetail ? `
                             <button onclick="document.getElementById('slider-${idx}').scrollBy({left: 300, behavior: 'smooth'}); event.stopPropagation();" class="absolute top-1/2 right-2 -translate-y-1/2 bg-black/40 text-white p-1 rounded-full hover:bg-black/60 z-10 hidden md:block"><span class="material-symbols-outlined text-sm">chevron_right</span></button>
                         ` : ''}
+                        
                         <div class="absolute bottom-2 right-2 bg-black/60 text-white text-[10px] px-2 py-0.5 rounded-md pointer-events-none">Lihat Detail &raquo;</div>
                     </div>
                     
@@ -379,10 +373,10 @@ document.addEventListener('DOMContentLoaded', () => {
             { type: "makanan", img: "media/galeri/nasibox-1.jpg", title: "Nasi Box Kardus Daging" },
             { type: "makanan", img: "media/galeri/tumpengan-1.jpg", title: "Tumpeng Premium" },
             { type: "makanan", img: "media/galeri/paket_unik-1.jpg", title: "Tumpeng Mini" },
-            { type: "makanan", img: "media/galeri/aqiqah-1.jpg", title: "Aqiqah Premium" },
-            { type: "makanan", img: "media/galeri/snack-1.jpg", title: "Paket Snack Box" },
+            { type: "makanan", img: "media/galeri/nasibox-3.jpg", title: "Nasi Besek Premium" }, // Pengganti aqiqah
+            { type: "makanan", img: "media/galeri/prasmanan-4.jpg", title: "Sajian Prasmanan" }, // Pengganti snack
             { type: "makanan", img: "media/galeri/prasmanan-3.jpg", title: "Set Prasmanan Elegan" },
-            { type: "makanan", img: "media/galeri/nasibox-2.jpg", title: "Nasi Box Besek Premium" },
+            { type: "makanan", img: "media/galeri/nasibox-2.jpg", title: "Nasi Box Reguler" },
             { type: "makanan", img: "media/galeri/tumpengan-2.jpg", title: "Liwetan Tampah" },
             
             { type: "event", img: "media/galeri/event-1.jpg", title: "Pernikahan Mewah" },
