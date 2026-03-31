@@ -3,9 +3,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // ========== 1. NAVBAR SCROLL EFFECT ==========
     const nav = document.getElementById('main-nav');
     if (nav) {
+        if (window.scrollY > 50) {
+            nav.classList.add('scrolled');
+        }
+        
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) nav.classList.add('scrolled');
-            else nav.classList.remove('scrolled');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
         });
     }
 
@@ -18,20 +25,29 @@ document.addEventListener('DOMContentLoaded', () => {
         'kontak.html': 'kontak'
     };
     const currentKey = pageMap[currentPage] || 'index';
+    
     document.querySelectorAll('.nav-link').forEach(link => {
-        if (link.getAttribute('data-page') === currentKey) link.classList.add('active');
+        if (link.getAttribute('data-page') === currentKey) {
+            link.classList.add('active');
+        }
     });
     document.querySelectorAll('.nav-link-mobile').forEach(link => {
-        if (link.getAttribute('data-page') === currentKey) link.classList.add('active');
+        if (link.getAttribute('data-page') === currentKey) {
+            link.classList.add('active');
+        }
     });
 
     // ========== 3. MOBILE MENU TOGGLE ==========
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     if (mobileMenuBtn && mobileMenu) {
-        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
         mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
         });
     }
 
@@ -47,32 +63,49 @@ document.addEventListener('DOMContentLoaded', () => {
         const cartItemsContainer = document.getElementById('cart-items');
         const cartTotalSpan = document.getElementById('cart-total');
         const cartBadge = document.getElementById('cart-badge');
+        
         if (!cartItemsContainer) return;
+        
         if (cart.length === 0) {
             cartItemsContainer.innerHTML = '<p class="text-center text-on-surface-variant">Keranjang kosong</p>';
             if (cartTotalSpan) cartTotalSpan.innerText = 'Rp 0';
-            if (cartBadge) { cartBadge.innerText = '0'; cartBadge.classList.add('hidden'); }
+            if (cartBadge) { 
+                cartBadge.innerText = '0'; 
+                cartBadge.classList.add('hidden'); 
+            }
             return;
         }
+        
         let total = 0;
         let html = '';
         cart.forEach((item, idx) => {
             total += item.price * item.qty;
             html += `
                 <div class="flex gap-4 items-center border-b pb-4">
-                    <div class="flex-grow"><h4 class="font-bold">${item.name}</h4><p class="text-sm text-on-surface-variant">Jumlah: ${item.qty}</p></div>
+                    <div class="flex-grow">
+                        <h4 class="font-bold">${item.name}</h4>
+                        <p class="text-sm text-on-surface-variant">Jumlah: ${item.qty}</p>
+                    </div>
                     <p class="font-bold text-primary">Rp ${(item.price * item.qty).toLocaleString()}</p>
-                    <button class="remove-item text-red-600" data-index="${idx}"><span class="material-symbols-outlined">delete</span></button>
+                    <button class="remove-item text-red-600" data-index="${idx}">
+                        <span class="material-symbols-outlined">delete</span>
+                    </button>
                 </div>
             `;
         });
+        
         cartItemsContainer.innerHTML = html;
         if (cartTotalSpan) cartTotalSpan.innerText = `Rp ${total.toLocaleString()}`;
+        
         const totalQty = cart.reduce((sum, i) => sum + i.qty, 0);
-        if (cartBadge) { cartBadge.innerText = totalQty; cartBadge.classList.remove('hidden'); }
+        if (cartBadge) { 
+            cartBadge.innerText = totalQty; 
+            cartBadge.classList.remove('hidden'); 
+        }
+        
         document.querySelectorAll('.remove-item').forEach(btn => {
             btn.addEventListener('click', (e) => {
-                const idx = parseInt(btn.dataset.index);
+                const idx = parseInt(btn.currentTarget.dataset.index);
                 cart.splice(idx, 1);
                 saveCart();
                 updateCartUI();
@@ -85,27 +118,36 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalMessage = document.getElementById('modal-message');
     const countdownSpan = document.getElementById('countdown');
     let closeTimer = null, countdownInterval = null;
+    
     function showSuccessModal(message) {
         if (!modal) return;
         modalMessage.innerText = message;
         let secondsLeft = 5;
         countdownSpan.innerText = secondsLeft;
+        
         if (closeTimer) clearTimeout(closeTimer);
         if (countdownInterval) clearInterval(countdownInterval);
+        
         countdownInterval = setInterval(() => {
             secondsLeft--;
             countdownSpan.innerText = secondsLeft;
-            if (secondsLeft <= 0) { clearInterval(countdownInterval); closeModal(); }
+            if (secondsLeft <= 0) { 
+                clearInterval(countdownInterval); 
+                closeModal(); 
+            }
         }, 1000);
+        
         closeTimer = setTimeout(() => closeModal(), 5000);
         modal.classList.add('active');
     }
+    
     function closeModal() {
         if (!modal) return;
         modal.classList.remove('active');
         if (closeTimer) clearTimeout(closeTimer);
         if (countdownInterval) clearInterval(countdownInterval);
     }
+    
     const closeModalBtn = document.getElementById('close-modal-btn');
     if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
 
@@ -113,16 +155,19 @@ document.addEventListener('DOMContentLoaded', () => {
         const existing = cart.find(item => item.name === name);
         if (existing) existing.qty++;
         else cart.push({ name, price, qty: 1 });
+        
         saveCart();
         updateCartUI();
         showSuccessModal(`${name} ditambahkan ke keranjang!`);
     }
+    
     function bindAddToCartButtons() {
         document.querySelectorAll('.add-to-cart').forEach(btn => {
             btn.removeEventListener('click', addToCartHandler);
             btn.addEventListener('click', addToCartHandler);
         });
     }
+    
     function addToCartHandler(e) {
         const btn = e.currentTarget;
         const name = btn.getAttribute('data-name');
@@ -134,20 +179,23 @@ document.addEventListener('DOMContentLoaded', () => {
     bindAddToCartButtons();
     window.bindAddToCart = bindAddToCartButtons;
 
-    // Cart Drawer
+    // Cart Drawer Toggle
     const cartDrawer = document.getElementById('cart-drawer');
     if (cartDrawer) {
-        const openCartBtns = document.querySelectorAll('.cart-toggle-btn, #cartIconNav');
+        const openCartBtns = document.querySelectorAll('.cart-toggle-btn');
         openCartBtns.forEach(btn => btn.addEventListener('click', () => cartDrawer.classList.add('active')));
         const closeDrawer = () => cartDrawer.classList.remove('active');
         document.querySelectorAll('.close-drawer, .drawer-overlay').forEach(el => el?.addEventListener('click', closeDrawer));
     }
 
-    // Checkout WA
+    // Checkout via WA
     const checkoutBtn = document.getElementById('checkout-wa');
     if (checkoutBtn) {
         checkoutBtn.addEventListener('click', () => {
-            if (cart.length === 0) { alert('Keranjang masih kosong!'); return; }
+            if (cart.length === 0) { 
+                alert('Keranjang masih kosong!'); 
+                return; 
+            }
             let message = 'Halo, saya ingin memesan:%0A';
             cart.forEach(item => message += `- ${item.name} (${item.qty} pcs) = Rp ${(item.price * item.qty).toLocaleString()}%0A`);
             const total = cart.reduce((s, i) => s + (i.price * i.qty), 0);
@@ -190,21 +238,22 @@ document.addEventListener('DOMContentLoaded', () => {
         'paket_unik': 'Paket Unik', 'aqiqah': 'Aqiqah', 'snack': 'Snack',
     };
 
-    // Render filter buttons (menu)
+    // Render filter buttons (menu.html)
     const filterContainer = document.getElementById('menu-filter-buttons');
-    function renderFilters() {
-        if (!filterContainer) return;
-        let html = `<button data-filter="all" class="filter-btn px-6 sm:px-8 py-2 sm:py-3 rounded-full silk-gradient text-white font-medium shadow-lg shadow-primary/20 transition-all hover:scale-105">Semua Menu</button>`;
+    if (filterContainer) {
+        let html = `<button data-filter="all" class="filter-btn silk-gradient text-white shadow-lg shadow-primary/20 hover:scale-105">Semua Menu</button>`;
         categories.forEach(cat => {
-            html += `<button data-filter="${cat}" class="filter-btn px-6 sm:px-8 py-2 sm:py-3 rounded-full bg-white text-on-surface-variant font-medium hover:bg-surface-container-highest transition-all shadow-sm">${categoryNames[cat] || cat}</button>`;
+            html += `<button data-filter="${cat}" class="filter-btn bg-white text-on-surface-variant hover:bg-surface-container-highest shadow-sm">${categoryNames[cat] || cat}</button>`;
         });
         filterContainer.innerHTML = html;
+        
         document.querySelectorAll('#menu-filter-buttons .filter-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 const filter = btn.getAttribute('data-filter');
                 currentFilter = filter;
                 currentPageNum = 1;
                 renderMenu();
+                
                 document.querySelectorAll('#menu-filter-buttons .filter-btn').forEach(b => {
                     if (b === btn) {
                         b.classList.add('silk-gradient', 'text-white', 'shadow-lg');
@@ -248,6 +297,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             </div>
         `).join('');
+        
         bindAddToCartButtons();
         
         document.querySelectorAll('#menu-grid .img-preview').forEach(el => {
@@ -275,6 +325,7 @@ document.addEventListener('DOMContentLoaded', () => {
             html += `<button class="pagination-btn ${i === currentPageNum ? 'active' : ''}" data-page="${i}">${i}</button>`;
         }
         paginationContainer.innerHTML = html;
+        
         document.querySelectorAll('#pagination-container .pagination-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 currentPageNum = parseInt(btn.getAttribute('data-page'));
@@ -284,16 +335,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    if (document.getElementById('menu-filter-buttons')) {
-        renderFilters();
+    if (document.getElementById('menu-grid')) {
         renderMenu();
     }
 
     // ========== GALERI PAGE ==========
     const galleryGrid = document.getElementById('gallery-grid');
     if (galleryGrid) {
+        // Data Galeri Dikembalikan Menggunakan Tipe: Makanan & Acara
         const galleryItems = [
-            // Kategori: Makanan (10)
             { type: "makanan", img: "media/galeri/prasmanan-1.jpg", title: "Paket Reguler A" },
             { type: "makanan", img: "media/galeri/prasmanan-2.jpg", title: "Paket Platinum E" },
             { type: "makanan", img: "media/galeri/nasibox-1.jpg", title: "Nasi Box Kardus Daging" },
@@ -305,7 +355,6 @@ document.addEventListener('DOMContentLoaded', () => {
             { type: "makanan", img: "media/galeri/nasibox-2.jpg", title: "Nasi Box Besek Premium" },
             { type: "makanan", img: "media/galeri/tumpengan-2.jpg", title: "Liwetan Tampah" },
             
-            // Kategori: Acara (10)
             { type: "event", img: "media/galeri/event-1.jpg", title: "Pernikahan Mewah" },
             { type: "event", img: "media/galeri/event-2.jpg", title: "Garden Party" },
             { type: "event", img: "media/galeri/event-3.jpg", title: "Dekorasi Prasmanan" },
@@ -322,18 +371,21 @@ document.addEventListener('DOMContentLoaded', () => {
         if (galleryFilterContainer) {
             const galleryCategories = ['all', 'makanan', 'event'];
             const galleryCategoryLabels = { all: 'Semua', makanan: 'Makanan', event: 'Acara' };
+            
             function renderGalleryFilters() {
                 let html = '';
                 galleryCategories.forEach(cat => {
                     html += `<button data-filter="${cat}" class="filter-btn ${cat === 'all' ? 'silk-gradient text-white shadow-lg' : 'bg-white text-on-surface-variant'} transition-all hover:scale-105">${galleryCategoryLabels[cat]}</button>`;
                 });
                 galleryFilterContainer.innerHTML = html;
+                
                 document.querySelectorAll('#gallery-filter-buttons .filter-btn').forEach(btn => {
                     btn.addEventListener('click', () => {
                         const filter = btn.getAttribute('data-filter');
                         currentGalleryFilter = filter;
                         currentGalleryPage = 1;
                         renderGallery();
+                        
                         document.querySelectorAll('#gallery-filter-buttons .filter-btn').forEach(b => {
                             if (b === btn) {
                                 b.classList.add('silk-gradient', 'text-white', 'shadow-lg');
@@ -361,7 +413,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="gallery-item cursor-pointer" data-img="${item.img}">
                         <img src="${item.img}" alt="${item.title}" onerror="this.src='https://placehold.co/600x400?text=No+Image'">
                         <div class="gallery-overlay">
-                            <span class="text-yellow-500 font-bold uppercase tracking-wider">${item.type === 'makanan' ? 'Makanan' : 'Acara'}</span>
+                            <span class="text-yellow-500 font-bold uppercase tracking-wider">${galleryCategoryLabels[item.type]}</span>
                             <h3 class="text-white font-headline text-lg md:text-xl">${item.title}</h3>
                         </div>
                     </div>
@@ -392,6 +444,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     html += `<button class="pagination-btn ${i === currentGalleryPage ? 'active' : ''}" data-page="${i}">${i}</button>`;
                 }
                 paginationContainer.innerHTML = html;
+                
                 document.querySelectorAll('#gallery-pagination .pagination-btn').forEach(btn => {
                     btn.addEventListener('click', () => {
                         currentGalleryPage = parseInt(btn.getAttribute('data-page'));
