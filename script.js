@@ -226,13 +226,13 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: "Nasi Besek Premium Paket 4", category: "nasibox", price: 40000, desc: "Nasi liwet teri, Ayam Goreng, Tempe, Tahu, Ikan teri balado, Telur asin, Lalapan, Sambel", imgMain: "media/menu/nasibox/besek-premium-4.jpg", imgDetail: "media/menu/nasibox/besek-premium-4-detail.jpg" },
         
         // Tumpengan & Liwetan (Tumpeng Mini sekarang masuk sini)
+        { name: "Paket Tumpeng Mini", category: "tumpengan", price: 30000, desc: "Nasi kuning, Ayam Bakar/Goreng, Perkedel kentang, Telur balado, Kering tempe, Mie goreng", imgMain: "media/menu/paket_unik/tumpeng-mini.jpg", imgDetail: "media/menu/paket_unik/tumpeng-mini-detail.png" },
         { name: "Paket Tumpeng Reguler", category: "tumpengan", price: 350000, desc: "10 pax: Rp 350.000 | 20 pax: Rp 650.000 | 30 pax: Rp 950.000", imgMain: "media/menu/tumpengan/reguler-1.jpg", imgDetail: "media/menu/tumpengan/reguler-1-detail.png" },
         { name: "Tumpeng Premium Paket 1", category: "tumpengan", price: 400000, desc: "10 pax: Rp 400.000 | 20 pax: Rp 800.000 | 30 pax: Rp 1.150.000", imgMain: "media/menu/tumpengan/premium-1.jpg", imgDetail: "media/menu/tumpengan/premium-1-detail.jpg" },
         { name: "Tumpeng Premium Paket 2", category: "tumpengan", price: 400000, desc: "10 pax: Rp 400.000 | 20 pax: Rp 800.000 | 30 pax: Rp 1.150.000", imgMain: "media/menu/tumpengan/premium-2.jpg", imgDetail: "media/menu/tumpengan/premium-2-detail.jpg" },
         { name: "Tumpeng Premium Paket 3", category: "tumpengan", price: 400000, desc: "10 pax: Rp 400.000 | 20 pax: Rp 800.000 | 30 pax: Rp 1.150.000", imgMain: "media/menu/tumpengan/premium-3.jpg", imgDetail: "media/menu/tumpengan/premium-3-detail.jpg" },
         { name: "Liwetan Tampah Paket 1", category: "tumpengan", price: 400000, desc: "10 pax: Rp 400.000 | 20 pax: Rp 800.000 | 30 pax: Rp 1.200.000", imgMain: "media/menu/tumpengan/liwetan-1.jpg", imgDetail: "media/menu/tumpengan/liwetan-1-detail.png" },
-        { name: "Liwetan Tampah Paket 2", category: "tumpengan", price: 400000, desc: "10 pax: Rp 400.000 | 20 pax: Rp 800.000 | 30 pax: Rp 1.200.000", imgMain: "media/menu/tumpengan/liwetan-2.jpg", imgDetail: "media/menu/tumpengan/liwetan-2-detail.png" },
-        { name: "Paket Tumpeng Mini", category: "tumpengan", price: 30000, desc: "Nasi kuning, Ayam Bakar/Goreng, Perkedel kentang, Telur balado, Kering tempe, Mie goreng", imgMain: "media/menu/paket_unik/tumpeng-mini.jpg", imgDetail: "media/menu/paket_unik/tumpeng-mini-detail.png" }
+        { name: "Liwetan Tampah Paket 2", category: "tumpengan", price: 400000, desc: "10 pax: Rp 400.000 | 20 pax: Rp 800.000 | 30 pax: Rp 1.200.000", imgMain: "media/menu/tumpengan/liwetan-2.jpg", imgDetail: "media/menu/tumpengan/liwetan-2-detail.png" }
     ];
 
     const categories = [...new Set(menuItems.map(item => item.category))];
