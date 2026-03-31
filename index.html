@@ -106,21 +106,21 @@
                         <span class="material-symbols-outlined text-4xl">restaurant</span>
                     </div>
                     <h3 class="font-headline text-2xl mb-4">Prasmanan</h3>
-                    <p class="text-on-surface-variant font-light leading-relaxed text-sm">Sajian prasmanan megah dengan menu tradisional pilihan dan pelayanan profesional.</p>
+                    <p class="text-on-surface-variant font-light leading-relaxed text-sm">Sajian prasmanan megah dengan menu tradisional pilihan untuk pernikahan dan acara besar.</p>
                 </div>
                 <div class="flex flex-col items-center text-center">
                     <div class="w-20 h-20 rounded-2xl bg-white flex items-center justify-center mb-8 text-primary shadow-sm">
-                        <span class="material-symbols-outlined text-4xl">cookie</span>
+                        <span class="material-symbols-outlined text-4xl">cake</span>
                     </div>
-                    <h3 class="font-headline text-2xl mb-4">Snack Box</h3>
-                    <p class="text-on-surface-variant font-light leading-relaxed text-sm">Koleksi jajanan pasar premium dan kue-kue modern yang diolah segar setiap hari.</p>
+                    <h3 class="font-headline text-2xl mb-4">Tumpeng</h3>
+                    <p class="text-on-surface-variant font-light leading-relaxed text-sm">Sajian tumpeng tradisional premium untuk melengkapi syukuran dan hari spesial Anda.</p>
                 </div>
                 <div class="flex flex-col items-center text-center">
                     <div class="w-20 h-20 rounded-2xl bg-white flex items-center justify-center mb-8 text-primary shadow-sm">
-                        <span class="material-symbols-outlined text-4xl">local_bar</span>
+                        <span class="material-symbols-outlined text-4xl">business_center</span>
                     </div>
-                    <h3 class="font-headline text-2xl mb-4">Minuman</h3>
-                    <p class="text-on-surface-variant font-light leading-relaxed text-sm">Ragam minuman segar, kopi, dan jus buah asli untuk melengkapi hidangan utama Anda.</p>
+                    <h3 class="font-headline text-2xl mb-4">Catering Korporasi</h3>
+                    <p class="text-on-surface-variant font-light leading-relaxed text-sm">Layanan konsumsi profesional untuk rapat, seminar, dan acara perusahaan lainnya.</p>
                 </div>
             </div>
         </div>
@@ -348,7 +348,6 @@
             if(imageModal && modalImage && closeModalBtn) {
                 indexImagePreviews.forEach(preview => {
                     preview.addEventListener('click', (e) => {
-                        // Jangan trigger kalau yang diklik tombol slider
                         if(e.target.tagName.toLowerCase() === 'button' || e.target.closest('button')) return;
                         
                         const imgSrc = preview.getAttribute('data-img');
