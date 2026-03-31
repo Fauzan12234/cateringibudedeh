@@ -30,7 +30,7 @@
 </head>
 <body class="bg-surface font-body text-on-surface antialiased">
     <nav id="main-nav" class="fixed top-0 w-full z-50 bg-transparent transition-all duration-500 border-b border-transparent">
-        <div class="flex justify-between items-center w-full px-8 py-4 max-w-6xl mx-auto">
+        <div class="flex justify-between items-center w-full px-4 md:px-8 py-4 md:py-5 max-w-6xl mx-auto">
             <div class="flex items-center gap-3">
                 <img src="media/logo.png" alt="Logo Catering Ibu Dedeh" class="h-8 md:h-10 w-auto object-contain">
                 <div class="nav-logo text-xl md:text-2xl font-serif font-bold text-white transition-colors duration-300">
@@ -44,21 +44,19 @@
                 <a href="galeri.html" class="nav-link text-white hover:text-gray-200 transition-colors duration-300">Galeri</a>
                 <a href="kontak.html" class="nav-link text-white hover:text-gray-200 transition-colors duration-300">Kontak</a>
             </div>
-            
             <div class="flex items-center gap-4">
                 <button class="relative p-2 scale-95 duration-200 ease-in-out hover:bg-white/20 rounded-full cart-toggle-btn nav-icon-btn">
-                    <span class="nav-icon material-symbols-outlined text-white transition-colors duration-300">shopping_cart</span>
+                    <span class="nav-icon material-symbols-outlined text-2xl text-white transition-colors duration-300">shopping_cart</span>
                     <span id="cart-badge" class="absolute top-0 right-0 bg-tertiary text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full hidden">0</span>
                 </button>
                 <a href="kontak.html" class="btn-hubungi hidden md:inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-white text-primary border border-white text-sm font-bold transition-all hover:bg-gray-100 hover:shadow-md">
                     Hubungi Kami
                 </a>
-                <button id="mobile-menu-btn" class="md:hidden focus:outline-none nav-icon-btn">
+                <button id="mobile-menu-btn" class="md:hidden focus:outline-none nav-icon-btn p-2">
                     <span class="nav-icon material-symbols-outlined text-3xl text-white transition-colors duration-300">menu</span>
                 </button>
             </div>
         </div>
-
         <div id="mobile-menu" class="md:hidden hidden bg-white/95 backdrop-blur-md w-full absolute left-0 top-full shadow-lg py-4 px-6 border-t border-stone-100">
             <div class="flex flex-col space-y-4">
                 <a href="index.html" data-page="index" class="nav-link-mobile text-primary font-bold font-serif text-base uppercase py-2 border-l-2 border-primary pl-2">Beranda</a>
