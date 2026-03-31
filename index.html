@@ -135,52 +135,78 @@
                 </div>
                 <a href="menu.html" class="text-primary font-bold border-b-2 border-primary/20 hover:border-primary transition-all pb-1">Lihat Semua Menu</a>
             </div>
+            
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                <div class="menu-card">
+                <div class="menu-card group">
                     <div class="img-container relative">
-                        <img src="media/menu/paket_unik/tumpeng-mini.jpg" alt="Nasi Kuning Special" onerror="this.src='https://placehold.co/600x400?text=Nasi+Kuning'">
-                        <div class="absolute top-4 right-4 bg-tertiary-fixed text-on-tertiary-fixed px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest z-10 pointer-events-none">Terlaris</div>
+                        <div class="flex overflow-x-auto snap-x snap-mandatory h-full w-full no-scrollbar scroll-smooth" id="slider-unggulan-1">
+                            <div class="w-full h-full flex-shrink-0 snap-center relative img-preview cursor-pointer" data-img="media/menu/tumpengan/premium-1.jpg">
+                                <img src="media/menu/tumpengan/premium-1.jpg" alt="Tumpeng Premium Paket 1" onerror="this.src='https://placehold.co/600x400?text=Tumpeng+Premium'" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                                <div class="absolute top-4 right-4 bg-tertiary-fixed text-on-tertiary-fixed px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest z-10 pointer-events-none">Favorit</div>
+                                <button onclick="document.getElementById('slider-unggulan-1').scrollBy({left: 300, behavior: 'smooth'}); event.stopPropagation();" class="absolute top-1/2 right-2 -translate-y-1/2 bg-black/40 text-white p-1 rounded-full hover:bg-black/60 z-10 hidden md:block"><span class="material-symbols-outlined text-sm">chevron_right</span></button>
+                                <div class="absolute bottom-2 right-2 bg-black/60 text-white text-[10px] px-2 py-0.5 rounded-md pointer-events-none">Lihat Detail &raquo;</div>
+                            </div>
+                            <div class="w-full h-full flex-shrink-0 snap-center relative img-preview cursor-pointer bg-surface-container-low" data-img="media/menu/tumpengan/premium-1-detail.jpg">
+                                <img src="media/menu/tumpengan/premium-1-detail.jpg" alt="Detail Tumpeng Premium 1" onerror="this.src='https://placehold.co/600x400?text=Katalog+Detail'" class="w-full h-full object-contain p-2 transition-transform duration-500 group-hover:scale-105">
+                                <button onclick="document.getElementById('slider-unggulan-1').scrollBy({left: -300, behavior: 'smooth'}); event.stopPropagation();" class="absolute top-1/2 left-2 -translate-y-1/2 bg-black/40 text-white p-1 rounded-full hover:bg-black/60 z-10 hidden md:block"><span class="material-symbols-outlined text-sm">chevron_left</span></button>
+                            </div>
+                        </div>
                     </div>
                     <div class="card-content">
                         <div class="title-price">
-                            <h3>Nasi Kuning Special</h3>
-                            <span class="price">Rp 45.000</span>
+                            <h3>Tumpeng Premium Paket 1</h3>
+                            <span class="price">Rp 400.000</span>
                         </div>
-                        <p class="desc">Nasi kuning rempah dengan ayam goreng lengkuas, sambal goreng ati, dan pelengkap autentik.</p>
-                        <button class="add-to-cart" data-name="Nasi Kuning Special" data-price="45000">
+                        <p class="desc">10 pax: Rp 400.000 | 20 pax: Rp 800.000 | 30 pax: Rp 1.150.000</p>
+                        <button class="add-to-cart mt-auto" data-name="Tumpeng Premium Paket 1" data-price="400000">
                             <span class="material-symbols-outlined text-xl">add_shopping_cart</span>
                             Tambah ke Keranjang
                         </button>
                     </div>
                 </div>
-                <div class="menu-card">
-                    <div class="img-container">
-                        <img src="media/menu/prasmanan/reguler-a.jpg" alt="Rendang Sapi Autentik" onerror="this.src='https://placehold.co/600x400?text=Rendang'">
+                
+                <div class="menu-card group">
+                    <div class="img-container relative">
+                        <div class="w-full h-full flex-shrink-0 relative img-preview cursor-pointer" data-img="media/menu/prasmanan/platinum-e.jpg">
+                            <img src="media/menu/prasmanan/platinum-e.jpg" alt="Paket Platinum E" onerror="this.src='https://placehold.co/600x400?text=Prasmanan+Platinum'" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                            <div class="absolute top-4 right-4 bg-tertiary-fixed text-on-tertiary-fixed px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest z-10 pointer-events-none">Premium</div>
+                        </div>
                     </div>
                     <div class="card-content">
                         <div class="title-price">
-                            <h3>Rendang Sapi Autentik</h3>
-                            <span class="price">Rp 65.000</span>
+                            <h3>Paket Platinum E</h3>
+                            <span class="price">Rp 80.000</span>
                         </div>
-                        <p class="desc">Daging sapi pilihan yang dimasak perlahan dengan bumbu rendang warisan selama 8 jam.</p>
-                        <button class="add-to-cart" data-name="Rendang Sapi Autentik" data-price="65000">
+                        <p class="desc">Nasi, Ayam Bakakak, Ikan Nila Bakar, Tahu Tempe, Urap, Sambel</p>
+                        <button class="add-to-cart mt-auto" data-name="Paket Platinum E" data-price="80000">
                             <span class="material-symbols-outlined text-xl">add_shopping_cart</span>
                             Tambah ke Keranjang
                         </button>
                     </div>
                 </div>
-                <div class="menu-card">
+
+                <div class="menu-card group">
                     <div class="img-container relative">
-                        <img src="media/menu/snack/snack-premium.jpg" alt="Premium Snack Box" onerror="this.src='https://placehold.co/600x400?text=Snack+Box'">
-                        <div class="absolute top-4 right-4 bg-primary text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest z-10 pointer-events-none">Favorit</div>
+                        <div class="flex overflow-x-auto snap-x snap-mandatory h-full w-full no-scrollbar scroll-smooth" id="slider-unggulan-3">
+                            <div class="w-full h-full flex-shrink-0 snap-center relative img-preview cursor-pointer" data-img="media/menu/nasibox/besek-premium-1.jpg">
+                                <img src="media/menu/nasibox/besek-premium-1.jpg" alt="Nasi Besek Premium Paket 1" onerror="this.src='https://placehold.co/600x400?text=Nasi+Besek'" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                                <div class="absolute top-4 right-4 bg-tertiary-fixed text-on-tertiary-fixed px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest z-10 pointer-events-none">Terlaris</div>
+                                <button onclick="document.getElementById('slider-unggulan-3').scrollBy({left: 300, behavior: 'smooth'}); event.stopPropagation();" class="absolute top-1/2 right-2 -translate-y-1/2 bg-black/40 text-white p-1 rounded-full hover:bg-black/60 z-10 hidden md:block"><span class="material-symbols-outlined text-sm">chevron_right</span></button>
+                                <div class="absolute bottom-2 right-2 bg-black/60 text-white text-[10px] px-2 py-0.5 rounded-md pointer-events-none">Lihat Detail &raquo;</div>
+                            </div>
+                            <div class="w-full h-full flex-shrink-0 snap-center relative img-preview cursor-pointer bg-surface-container-low" data-img="media/menu/nasibox/besek-premium-1-detail.jpg">
+                                <img src="media/menu/nasibox/besek-premium-1-detail.jpg" alt="Detail Nasi Besek Premium 1" onerror="this.src='https://placehold.co/600x400?text=Katalog+Detail'" class="w-full h-full object-contain p-2 transition-transform duration-500 group-hover:scale-105">
+                                <button onclick="document.getElementById('slider-unggulan-3').scrollBy({left: -300, behavior: 'smooth'}); event.stopPropagation();" class="absolute top-1/2 left-2 -translate-y-1/2 bg-black/40 text-white p-1 rounded-full hover:bg-black/60 z-10 hidden md:block"><span class="material-symbols-outlined text-sm">chevron_left</span></button>
+                            </div>
+                        </div>
                     </div>
                     <div class="card-content">
                         <div class="title-price">
-                            <h3>Premium Snack Box</h3>
-                            <span class="price">Rp 35.000</span>
+                            <h3>Nasi Besek Premium Paket 1</h3>
+                            <span class="price">Rp 30.000</span>
                         </div>
-                        <p class="desc">Kurasi 5 jenis kue tradisional dan modern dengan kemasan eksklusif nan elegan.</p>
-                        <button class="add-to-cart" data-name="Premium Snack Box" data-price="35000">
+                        <p class="desc">Nasi Putih, Ayam Bakar, Tempe, Tahu, Lalapan, Sambel</p>
+                        <button class="add-to-cart mt-auto" data-name="Nasi Besek Premium Paket 1" data-price="30000">
                             <span class="material-symbols-outlined text-xl">add_shopping_cart</span>
                             Tambah ke Keranjang
                         </button>
@@ -210,7 +236,7 @@
                 </div>
                 <div class="grid grid-cols-2 gap-8 pt-8 border-t border-primary/10">
                     <div><span class="block text-4xl font-headline text-primary mb-2">25+</span><span class="text-xs uppercase tracking-widest text-on-surface-variant font-bold">Tahun Pengalaman</span></div>
-                    <div><span class="block text-4xl font-headline text-primary mb-2">10rb+</span><span class="text-xs uppercase tracking-widest text-on-surface-variant font-bold">Acara Sukses</span></div>
+                    <div><span class="block text-4xl font-headline text-primary mb-2">7rb+</span><span class="text-xs uppercase tracking-widest text-on-surface-variant font-bold">Acara Sukses</span></div>
                 </div>
             </div>
         </div>
@@ -233,6 +259,14 @@
             </div>
         </div>
     </section>
+
+    <div id="image-modal" class="fixed inset-0 z-[80] flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+        <div class="relative max-w-4xl w-full mx-4">
+            <button id="close-modal-img" class="absolute -top-12 right-0 text-white text-3xl hover:text-gray-300">&times;</button>
+            <img id="modal-image" class="w-full h-auto rounded-lg shadow-2xl" src="" alt="Preview">
+        </div>
+    </div>
 
     <div id="cart-drawer" class="fixed inset-0 z-[60] pointer-events-none overflow-hidden">
         <div class="absolute inset-0 bg-stone-900/40 backdrop-blur-sm opacity-0 transition-opacity duration-500 drawer-overlay"></div>
@@ -302,5 +336,39 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const indexImagePreviews = document.querySelectorAll('.img-preview');
+            const imageModal = document.getElementById('image-modal');
+            const modalImage = document.getElementById('modal-image');
+            const closeModalBtn = document.getElementById('close-modal-img');
+
+            if(imageModal && modalImage && closeModalBtn) {
+                indexImagePreviews.forEach(preview => {
+                    preview.addEventListener('click', (e) => {
+                        // Jangan trigger kalau yang diklik tombol slider
+                        if(e.target.tagName.toLowerCase() === 'button' || e.target.closest('button')) return;
+                        
+                        const imgSrc = preview.getAttribute('data-img');
+                        if (imgSrc) {
+                            modalImage.src = imgSrc;
+                            imageModal.classList.add('active');
+                        }
+                    });
+                });
+
+                closeModalBtn.addEventListener('click', () => {
+                    imageModal.classList.remove('active');
+                });
+                
+                imageModal.addEventListener('click', (e) => {
+                    if (e.target === imageModal) {
+                        imageModal.classList.remove('active');
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
