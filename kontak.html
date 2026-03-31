@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catering Ibu Dedeh - Kontak</title>
+    <title>Kontak - Catering Ibu Dedeh</title>
     <link rel="icon" type="image/png" href="media/logo.ico">
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script>
@@ -29,11 +29,14 @@
     <script src="script.js" defer></script>
 </head>
 <body class="bg-surface font-body text-on-surface antialiased">
-    <nav class="sticky top-0 w-full z-50 bg-white border-b border-stone-100 shadow-sm">
+
+    <nav class="sticky top-0 w-full z-50 bg-white border-b border-stone-100 shadow-sm transition-all duration-300">
         <div class="flex justify-between items-center w-full px-8 py-4 max-w-6xl mx-auto">
             <div class="flex items-center gap-3">
-                <img src="media/logo.png" alt="Logo Catering Ibu Dedeh" class="h-10 w-auto object-contain">
-                <div class="text-2xl font-serif font-bold text-red-900"><a href="index.html">Catering Ibu Dedeh</a></div>
+                <img src="media/logo.png" alt="Logo Catering Ibu Dedeh" class="h-8 md:h-10 w-auto object-contain">
+                <div class="text-xl md:text-2xl font-serif font-bold text-red-900">
+                    <a href="index.html">Catering Ibu Dedeh</a>
+                </div>
             </div>
             
             <div class="hidden md:flex items-center gap-8 font-serif tracking-tight text-lg uppercase">
@@ -55,11 +58,11 @@
         </div>
         <div id="mobile-menu" class="md:hidden hidden bg-white/95 backdrop-blur-md w-full absolute left-0 top-full shadow-lg py-4 px-6">
             <div class="flex flex-col space-y-4">
-                <a href="index.html" data-page="index" class="nav-link-mobile text-gray-700 font-serif text-lg uppercase py-2">Beranda</a>
-                <a href="menu.html" data-page="menu" class="nav-link-mobile text-primary font-bold font-serif text-lg uppercase py-2">Menu</a>
-                <a href="galeri.html" data-page="galeri" class="nav-link-mobile text-gray-700 font-serif text-lg uppercase py-2">Galeri</a>
-                <a href="kontak.html" data-page="kontak" class="nav-link-mobile text-gray-700 font-serif text-lg uppercase py-2">Kontak</a>
-                <a href="kontak.html" class="bg-primary text-white text-center py-3 rounded-full font-bold mt-2">Hubungi Kami</a>
+                <a href="index.html" data-page="index" class="nav-link-mobile text-gray-700 font-serif text-base uppercase py-2 hover:text-primary transition-colors">Beranda</a>
+                <a href="menu.html" data-page="menu" class="nav-link-mobile text-gray-700 font-serif text-base uppercase py-2 hover:text-primary transition-colors">Menu</a>
+                <a href="galeri.html" data-page="galeri" class="nav-link-mobile text-gray-700 font-serif text-base uppercase py-2 hover:text-primary transition-colors">Galeri</a>
+                <a href="kontak.html" data-page="kontak" class="nav-link-mobile text-primary font-bold font-serif text-base uppercase py-2 border-l-2 border-primary pl-2">Kontak</a>
+                <a href="kontak.html" class="bg-primary text-white text-center py-3 rounded-full font-bold mt-2 text-sm">Hubungi Kami</a>
             </div>
         </div>
     </nav>
