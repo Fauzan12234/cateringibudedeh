@@ -236,7 +236,7 @@
                     <p>Menggunakan bahan-bahan lokal terbaik dan rempah pilihan yang diolah secara tradisional, kami membawa cita rasa masakan rumah ke tingkat profesionalisme yang tinggi. Setiap menu adalah hasil kurasi yang mendalam untuk memastikan kepuasan setiap tamu Anda.</p>
                 </div>
                 <div class="grid grid-cols-2 gap-8 pt-8 border-t border-primary/10">
-                    <div><span class="block text-4xl font-headline text-primary mb-2">25+</span><span class="text-xs uppercase tracking-widest text-on-surface-variant font-bold">Tahun Pengalaman</span></div>
+                    <div><span class="block text-4xl font-headline text-primary mb-2">8+</span><span class="text-xs uppercase tracking-widest text-on-surface-variant font-bold">Tahun Pengalaman</span></div>
                     <div><span class="block text-4xl font-headline text-primary mb-2">7rb+</span><span class="text-xs uppercase tracking-widest text-on-surface-variant font-bold">Acara Sukses</span></div>
                 </div>
             </div>
@@ -348,6 +348,7 @@
             if(imageModal && modalImage && closeModalBtn) {
                 indexImagePreviews.forEach(preview => {
                     preview.addEventListener('click', (e) => {
+                        // Jangan trigger kalau yang diklik tombol slider
                         if(e.target.tagName.toLowerCase() === 'button' || e.target.closest('button')) return;
                         
                         const imgSrc = preview.getAttribute('data-img');
