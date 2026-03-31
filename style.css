@@ -25,20 +25,34 @@
     box-shadow: 0 4px 20px rgba(0,0,0,0.08);
     border-bottom-color: #f5f5f4;
 }
+
 /* Transisi warna teks saat di-scroll khusus index */
-#main-nav.scrolled .nav-logo a,
-#main-nav.scrolled .nav-link {
+#main-nav.scrolled .nav-logo a {
     color: #1b1c1b !important;
 }
 #main-nav.scrolled .nav-icon {
     color: #570000 !important;
 }
+
+/* Warna teks link default saat di-scroll */
+#main-nav.scrolled .nav-link {
+    color: #5a413d !important;
+    border-bottom-color: transparent !important;
+}
+
 /* Style untuk active link saat di-scroll */
 #main-nav.scrolled .nav-link.active {
     border-bottom-color: #570000 !important;
     color: #570000 !important;
 }
-/* Style untuk button Hubungi Kami saat di-scroll */
+
+/* Style hover saat di-scroll (Merah terang) */
+#main-nav.scrolled .nav-link:hover {
+    color: #ef4444 !important;
+    border-bottom-color: #ef4444 !important;
+}
+
+/* Tombol hubungi kami saat scroll */
 #main-nav.scrolled .btn-hubungi {
     background-color: white;
     color: #570000;
@@ -46,6 +60,13 @@
 }
 #main-nav.scrolled .btn-hubungi:hover {
     background-color: #fee2e2;
+}
+
+/* Navbar biasa (non-index) */
+.nav-link.active {
+    border-bottom-color: white !important;
+    border-bottom-width: 2px;
+    opacity: 1;
 }
 
 /* Cart drawer */
@@ -66,6 +87,12 @@
 #mobile-menu {
     transition: all 0.3s ease;
 }
+.nav-link-mobile.active {
+    color: #570000;
+    font-weight: bold;
+    border-left: 3px solid #570000;
+    padding-left: 0.75rem;
+}
 
 /* ===== MENU CARD ===== */
 .menu-card {
@@ -78,7 +105,7 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    position: relative; /* Menambahkan position relative untuk absolute children */
+    position: relative;
 }
 .menu-card:hover {
     transform: translateY(-6px);
@@ -165,8 +192,8 @@
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, 1fr);
     gap: 0.75rem;
-    aspect-ratio: 1; /* Tetap menjaga bentuk kotak sempurna */
-    width: 100%; /* Memenuhi container 7xl seutuhnya */
+    aspect-ratio: 1;
+    width: 100%;
 }
 
 .gallery-item {
@@ -179,16 +206,8 @@
     background-color: #f0f0f0;
 }
 
-/* Auto placement rule for exact 10 items mapping to a 4x4 grid */
-/* Item 1 is large (top-left) */
-.gallery-collage-grid .gallery-item:nth-child(1) {
-    grid-area: 1 / 1 / 3 / 3;
-}
-/* Item 10 is large (bottom-right) */
-.gallery-collage-grid .gallery-item:nth-child(10) {
-    grid-area: 3 / 3 / 5 / 5;
-}
-/* Remaining 8 items automatically fill the rest 1x1 cells */
+.gallery-collage-grid .gallery-item:nth-child(1) { grid-area: 1 / 1 / 3 / 3; }
+.gallery-collage-grid .gallery-item:nth-child(10) { grid-area: 3 / 3 / 5 / 5; }
 
 .gallery-item:hover {
     transform: translateY(-4px);
@@ -214,29 +233,19 @@
     opacity: 0;
     transition: opacity 0.3s ease;
 }
-.gallery-item:hover .gallery-overlay {
-    opacity: 1;
-}
-.gallery-overlay span {
-    font-size: 0.7rem;
-    letter-spacing: 1px;
-}
-.gallery-overlay h3 {
-    font-size: 1.125rem;
-    font-weight: 600;
-    margin-top: 0.25rem;
-}
+.gallery-item:hover .gallery-overlay { opacity: 1; }
+.gallery-overlay span { font-size: 0.7rem; letter-spacing: 1px; }
+.gallery-overlay h3 { font-size: 1.25rem; font-weight: 600; margin-top: 0.25rem; }
 
 /* ===== FILTER BUTTONS ===== */
 .filter-btn {
-    /* Penyesuaian padding khusus filter agar tidak turun ke baris baru */
     padding: 0.4rem 1.2rem; 
     border-radius: 9999px;
     font-weight: 600;
-    font-size: 0.85rem; /* Penyesuaian ukuran font sedikit lebih kecil */
+    font-size: 0.85rem; 
     transition: all 0.2s ease;
     cursor: pointer;
-    white-space: nowrap; /* Mencegah teks dalam tombol pecah */
+    white-space: nowrap; 
 }
 @media (min-width: 768px) {
     .filter-btn {
@@ -282,24 +291,15 @@
     box-shadow: 0 4px 8px rgba(87,0,0,0.2);
     transform: scale(1.05);
 }
-.pagination-btn:active {
-    transform: scale(0.95);
-}
+.pagination-btn:active { transform: scale(0.95); }
 
 /* Animasi fade in untuk pagination */
-#pagination-container,
-#gallery-pagination {
+#pagination-container, #gallery-pagination {
     animation: fadeInUp 0.4s ease;
 }
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* Success Modal & Image Modal */
@@ -307,23 +307,13 @@
     opacity: 1;
     pointer-events: auto;
 }
-#success-modal.active .bg-white {
-    transform: scale(1);
-}
-@keyframes spin {
-    to { transform: rotate(360deg); }
-}
-.animate-spin {
-    animation: spin 1s linear infinite;
-}
-#modal-image {
-    max-height: 85vh;
-    object-fit: contain;
-}
+#success-modal.active .bg-white { transform: scale(1); }
+@keyframes spin { to { transform: rotate(360deg); } }
+.animate-spin { animation: spin 1s linear infinite; }
+#modal-image { max-height: 85vh; object-fit: contain; }
 
-/* ===== MOBILE RESPONSIVE (CAROUSEL SWIPE) ===== */
+/* ===== MOBILE RESPONSIVE ===== */
 @media (max-width: 768px) {
-    /* Merubah Grid Kolase menjadi Horizontal Carousel di Layar Kecil */
     .gallery-collage-grid {
         display: flex;
         overflow-x: auto;
@@ -331,27 +321,18 @@
         aspect-ratio: auto;
         gap: 1rem;
         padding-bottom: 1.5rem;
-        /* Sembunyikan scrollbar agar lebih bersih */
         scrollbar-width: none;
     }
-    .gallery-collage-grid::-webkit-scrollbar {
-        display: none;
-    }
-    
+    .gallery-collage-grid::-webkit-scrollbar { display: none; }
     .gallery-collage-grid .gallery-item {
         flex: 0 0 85%;
-        height: 350px; /* Tinggi seragam untuk tampilan mobile */
+        height: 350px;
         scroll-snap-align: center;
         border-radius: 0.75rem;
     }
-
-    /* Reset aturan grid area khusus di tampilan mobile */
     .gallery-collage-grid .gallery-item:nth-child(1),
-    .gallery-collage-grid .gallery-item:nth-child(10) {
-        grid-area: auto;
-    }
-
-    /* Penyesuaian font dan padding */
+    .gallery-collage-grid .gallery-item:nth-child(10) { grid-area: auto; }
+    
     .filter-btn { padding: 0.4rem 1rem; font-size: 0.85rem; }
     .pagination-btn { padding: 0.35rem 1rem; font-size: 0.875rem; }
     .menu-card .img-container { height: 200px; }
