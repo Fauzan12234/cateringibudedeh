@@ -29,47 +29,53 @@
     <script src="script.js" defer></script>
 </head>
 <body class="bg-surface font-body text-on-surface antialiased">
-    <nav class="sticky top-0 w-full z-50 bg-white border-b border-stone-100 shadow-sm">
+    <nav id="main-nav" class="fixed top-0 w-full z-50 bg-transparent transition-all duration-500 border-b border-transparent">
         <div class="flex justify-between items-center w-full px-8 py-4 max-w-6xl mx-auto">
             <div class="flex items-center gap-3">
-                <img src="media/logo.png" alt="Logo Catering Ibu Dedeh" class="h-10 w-auto object-contain">
-                <div class="text-2xl font-serif font-bold text-red-900"><a href="index.html">Catering Ibu Dedeh</a></div>
+                <img src="media/logo.png" alt="Logo Catering Ibu Dedeh" class="h-8 md:h-10 w-auto object-contain">
+                <div class="nav-logo text-xl md:text-2xl font-serif font-bold text-white transition-colors duration-300">
+                    <a href="index.html">Catering Ibu Dedeh</a>
+                </div>
             </div>
             
             <div class="hidden md:flex items-center gap-8 font-serif tracking-tight text-lg uppercase">
-                <a href="index.html" class="text-red-800 font-bold border-b-2 border-red-800 pb-1">Beranda</a>
-                <a href="menu.html" class="text-stone-600 hover:text-red-800 transition-colors">Menu</a>
-                <a href="galeri.html" class="text-stone-600 hover:text-red-800 transition-colors">Galeri</a>
-                <a href="kontak.html" class="text-stone-600 hover:text-red-800 transition-colors">Kontak</a>
+                <a href="index.html" class="nav-link text-white font-bold border-b-2 border-white pb-1 transition-colors duration-300">Beranda</a>
+                <a href="menu.html" class="nav-link text-white hover:text-gray-200 transition-colors duration-300">Menu</a>
+                <a href="galeri.html" class="nav-link text-white hover:text-gray-200 transition-colors duration-300">Galeri</a>
+                <a href="kontak.html" class="nav-link text-white hover:text-gray-200 transition-colors duration-300">Kontak</a>
             </div>
+            
             <div class="flex items-center gap-4">
-                <button class="relative p-2 scale-95 duration-200 ease-in-out hover:bg-stone-100 rounded-full cart-toggle-btn">
-                    <span class="material-symbols-outlined text-red-900">shopping_cart</span>
+                <button class="relative p-2 scale-95 duration-200 ease-in-out hover:bg-white/20 rounded-full cart-toggle-btn nav-icon-btn">
+                    <span class="nav-icon material-symbols-outlined text-white transition-colors duration-300">shopping_cart</span>
                     <span id="cart-badge" class="absolute top-0 right-0 bg-tertiary text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full hidden">0</span>
                 </button>
-                <a href="kontak.html" class="hidden md:inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-white text-red-800 border border-red-800 text-sm font-bold transition-all hover:bg-red-50 hover:shadow-md">Hubungi Kami</a>
-                <button id="mobile-menu-btn" class="md:hidden text-gray-700 focus:outline-none">
-                    <span class="material-symbols-outlined text-3xl">menu</span>
+                <a href="kontak.html" class="btn-hubungi hidden md:inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-white text-primary border border-white text-sm font-bold transition-all hover:bg-gray-100 hover:shadow-md">
+                    Hubungi Kami
+                </a>
+                <button id="mobile-menu-btn" class="md:hidden focus:outline-none nav-icon-btn">
+                    <span class="nav-icon material-symbols-outlined text-3xl text-white transition-colors duration-300">menu</span>
                 </button>
             </div>
         </div>
-        <div id="mobile-menu" class="md:hidden hidden bg-white/95 backdrop-blur-md w-full absolute left-0 top-full shadow-lg py-4 px-6">
+
+        <div id="mobile-menu" class="md:hidden hidden bg-white/95 backdrop-blur-md w-full absolute left-0 top-full shadow-lg py-4 px-6 border-t border-stone-100">
             <div class="flex flex-col space-y-4">
-                <a href="index.html" data-page="index" class="nav-link-mobile text-gray-700 font-serif text-lg uppercase py-2">Beranda</a>
-                <a href="menu.html" data-page="menu" class="nav-link-mobile text-primary font-bold font-serif text-lg uppercase py-2">Menu</a>
-                <a href="galeri.html" data-page="galeri" class="nav-link-mobile text-gray-700 font-serif text-lg uppercase py-2">Galeri</a>
-                <a href="kontak.html" data-page="kontak" class="nav-link-mobile text-gray-700 font-serif text-lg uppercase py-2">Kontak</a>
-                <a href="kontak.html" class="bg-primary text-white text-center py-3 rounded-full font-bold mt-2">Hubungi Kami</a>
+                <a href="index.html" data-page="index" class="nav-link-mobile text-primary font-bold font-serif text-base uppercase py-2 border-l-2 border-primary pl-2">Beranda</a>
+                <a href="menu.html" data-page="menu" class="nav-link-mobile text-gray-700 font-serif text-base uppercase py-2 hover:text-primary transition-colors">Menu</a>
+                <a href="galeri.html" data-page="galeri" class="nav-link-mobile text-gray-700 font-serif text-base uppercase py-2 hover:text-primary transition-colors">Galeri</a>
+                <a href="kontak.html" data-page="kontak" class="nav-link-mobile text-gray-700 font-serif text-base uppercase py-2 hover:text-primary transition-colors">Kontak</a>
+                <a href="kontak.html" class="bg-primary text-white text-center py-3 rounded-full font-bold mt-2 text-sm">Hubungi Kami</a>
             </div>
         </div>
     </nav>
 
     <section class="relative h-screen w-full flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img class="w-full h-full object-cover" src="media/hero.jpg" alt="Hero catering">
+            <img class="w-full h-full object-cover" src="media/hero.jpg" alt="Hero catering" onerror="this.src='https://placehold.co/1920x1080?text=Hero+Image'">
             <div class="absolute inset-0 hero-overlay"></div>
         </div>
-        <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
+        <div class="relative z-10 text-center px-6 max-w-4xl mx-auto mt-16">
             <h1 class="font-headline text-6xl md:text-8xl text-white mb-6 tracking-tight leading-tight">Catering Ibu Dedeh</h1>
             <p class="text-white/90 text-xl md:text-3xl font-light mb-12 tracking-wide italic">Warisan Rasa Autentik untuk Momen Istimewa Anda</p>
             <div class="flex justify-center">
@@ -132,7 +138,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 <div class="menu-card">
                     <div class="img-container relative">
-                        <img src="media/menu/paket_unik/tumpeng-mini.jpg" alt="Nasi Kuning Special">
+                        <img src="media/menu/paket_unik/tumpeng-mini.jpg" alt="Nasi Kuning Special" onerror="this.src='https://placehold.co/600x400?text=Nasi+Kuning'">
                         <div class="absolute top-4 right-4 bg-tertiary-fixed text-on-tertiary-fixed px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest z-10 pointer-events-none">Terlaris</div>
                     </div>
                     <div class="card-content">
@@ -149,7 +155,7 @@
                 </div>
                 <div class="menu-card">
                     <div class="img-container">
-                        <img src="media/menu/prasmanan/reguler-a.jpg" alt="Rendang Sapi Autentik">
+                        <img src="media/menu/prasmanan/reguler-a.jpg" alt="Rendang Sapi Autentik" onerror="this.src='https://placehold.co/600x400?text=Rendang'">
                     </div>
                     <div class="card-content">
                         <div class="title-price">
@@ -165,7 +171,7 @@
                 </div>
                 <div class="menu-card">
                     <div class="img-container relative">
-                        <img src="media/menu/snack/snack-premium.jpg" alt="Premium Snack Box">
+                        <img src="media/menu/snack/snack-premium.jpg" alt="Premium Snack Box" onerror="this.src='https://placehold.co/600x400?text=Snack+Box'">
                         <div class="absolute top-4 right-4 bg-primary text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest z-10 pointer-events-none">Favorit</div>
                     </div>
                     <div class="card-content">
@@ -188,7 +194,7 @@
         <div class="max-w-6xl mx-auto flex flex-col lg:flex-row gap-16 items-center">
             <div class="w-full lg:w-1/2 relative">
                 <div class="relative rounded-[2rem] overflow-hidden shadow-2xl">
-                    <img class="w-full h-[500px] md:h-[650px] object-cover" src="media/ibu-dedeh.jpg" alt="Ibu Dedeh">
+                    <img class="w-full h-[500px] md:h-[650px] object-cover" src="media/ibu-dedeh.jpg" alt="Ibu Dedeh" onerror="this.src='https://placehold.co/800x1000?text=Ibu+Dedeh'">
                 </div>
                 <div class="absolute -bottom-6 -right-6 md:-bottom-8 md:-right-8 bg-primary text-white p-8 md:p-10 rounded-3xl shadow-2xl hidden md:block max-w-[280px]">
                     <p class="font-headline text-xl md:text-2xl leading-relaxed italic">"Rasa adalah doa yang kami sajikan di setiap piring Anda."</p>
@@ -217,10 +223,10 @@
                 <h2 class="font-headline text-4xl md:text-5xl text-on-surface">Momen yang Kami Abadikan</h2>
             </div>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-                <div class="aspect-[4/5] overflow-hidden rounded-2xl group shadow-md"><img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" src="media/galeri/event-1.jpg" alt="Wedding"></div>
-                <div class="aspect-[4/5] overflow-hidden rounded-2xl group shadow-md translate-y-4 md:translate-y-8"><img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" src="media/galeri/makanan-1.jpg" alt="Food"></div>
-                <div class="aspect-[4/5] overflow-hidden rounded-2xl group shadow-md"><img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" src="media/galeri/makanan-2.jpg" alt="Dessert"></div>
-                <div class="aspect-[4/5] overflow-hidden rounded-2xl group shadow-md translate-y-4 md:translate-y-8"><img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" src="media/galeri/event-2.jpg" alt="Event"></div>
+                <div class="aspect-[4/5] overflow-hidden rounded-2xl group shadow-md"><img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" src="media/galeri/event-1.jpg" alt="Wedding" onerror="this.src='https://placehold.co/400x500?text=Wedding'"></div>
+                <div class="aspect-[4/5] overflow-hidden rounded-2xl group shadow-md translate-y-4 md:translate-y-8"><img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" src="media/galeri/makanan-1.jpg" alt="Food" onerror="this.src='https://placehold.co/400x500?text=Food'"></div>
+                <div class="aspect-[4/5] overflow-hidden rounded-2xl group shadow-md"><img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" src="media/galeri/makanan-2.jpg" alt="Dessert" onerror="this.src='https://placehold.co/400x500?text=Dessert'"></div>
+                <div class="aspect-[4/5] overflow-hidden rounded-2xl group shadow-md translate-y-4 md:translate-y-8"><img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" src="media/galeri/event-2.jpg" alt="Event" onerror="this.src='https://placehold.co/400x500?text=Event'"></div>
             </div>
             <div class="mt-20 md:mt-24 text-center">
                 <a href="galeri.html" class="border-2 border-primary text-primary px-10 py-4 rounded-full font-bold hover:bg-primary hover:text-white transition-colors duration-300">Lihat Galeri Lengkap</a>
