@@ -1,8 +1,9 @@
 // script.js - Full functionality with menu pagination, cart, and gallery collage with pagination & modal
 document.addEventListener('DOMContentLoaded', () => {
-    // ========== 1. NAVBAR SCROLL EFFECT ==========
+    // ========== 1. NAVBAR SCROLL EFFECT (HANYA UNTUK INDEX.HTML) ==========
     const nav = document.getElementById('main-nav');
     if (nav) {
+        // Cek posisi awal saat load (penting jika di-refresh di tengah halaman)
         if (window.scrollY > 50) {
             nav.classList.add('scrolled');
         }
@@ -26,11 +27,13 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     const currentKey = pageMap[currentPage] || 'index';
     
+    // Set active link untuk desktop
     document.querySelectorAll('.nav-link').forEach(link => {
         if (link.getAttribute('data-page') === currentKey) {
             link.classList.add('active');
         }
     });
+    // Set active link untuk mobile
     document.querySelectorAll('.nav-link-mobile').forEach(link => {
         if (link.getAttribute('data-page') === currentKey) {
             link.classList.add('active');
@@ -44,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileMenuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
+        // Tutup menu saat link diklik
         mobileMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
@@ -103,6 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cartBadge.classList.remove('hidden'); 
         }
         
+        // Bind event hapus
         document.querySelectorAll('.remove-item').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const idx = parseInt(btn.currentTarget.dataset.index);
@@ -151,6 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeModalBtn = document.getElementById('close-modal-btn');
     if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
 
+    // Fungsi Tambah ke Keranjang
     function addToCart(name, price) {
         const existing = cart.find(item => item.name === name);
         if (existing) existing.qty++;
@@ -215,8 +221,9 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: "Paket Platinum F", category: "prasmanan", price: 90000, desc: "Nasi, Ayam Bakakak, Ikan Gurame Bakar, Tahu Tempe, Sayur Asem, Sambel", imgMain: "media/menu/prasmanan/platinum-f.jpg", imgDetail: null },
         { name: "Paket Platinum G", category: "prasmanan", price: 99000, desc: "Nasi, Ayam Bakakak, Udang Bakar, Tahu Tempe, Sayur Asem, Sambel", imgMain: "media/menu/prasmanan/platinum-g.jpg", imgDetail: null },
         
-        // Nasi Box (Diperbarui dengan detail)
+        // Nasi Box (Diperbarui dengan Nasi Box Reguler Paket 1 dan detail)
         { name: "Paket Hemat Styrofoam", category: "nasibox", price: 22000, desc: "Nasi, Ayam bakar/goreng, Tempe, Lalapan, Sambel", imgMain: "media/menu/nasibox/hemat-styrofoam.jpg", imgDetail: "media/menu/nasibox/hemat-styrofoam-detail.png" },
+        { name: "Nasi Box Reguler Paket 1", category: "nasibox", price: 25000, desc: "Nasi, Ayam Bakar, Tempe/Tahu, Lalapan, Sambel", imgMain: "media/menu/nasibox/reguler-1.jpg", imgDetail: "media/menu/nasibox/reguler-1-detail.png" },
         { name: "Nasi Box Reguler Paket 2", category: "nasibox", price: 27000, desc: "Nasi liwet bakar, Ayam Bakar, tempe/tahu, Lalapan, Sambel", imgMain: "media/menu/nasibox/reguler-2.jpg", imgDetail: "media/menu/nasibox/reguler-2-detail.png" },
         { name: "Nasi Box Reguler Paket 3", category: "nasibox", price: 30000, desc: "Nasi, Daging capcay, kentang balado, Sambel, Kerupuk", imgMain: "media/menu/nasibox/reguler-3.jpg", imgDetail: "media/menu/nasibox/reguler-3-detail.png" },
         { name: "Nasi Besek Premium Paket 1", category: "nasibox", price: 30000, desc: "Nasi Putih, Ayam Bakar, Tempe, Tahu, Lalapan, Sambel", imgMain: "media/menu/nasibox/besek-premium-1.jpg", imgDetail: "media/menu/nasibox/besek-premium-1-detail.jpg" },
@@ -381,6 +388,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ========== GALERI PAGE ==========
     const galleryGrid = document.getElementById('gallery-grid');
     if (galleryGrid) {
+        // Data Galeri Dikembalikan Menggunakan Tipe: Makanan & Acara
         const galleryItems = [
             { type: "makanan", img: "media/galeri/prasmanan-1.jpg", title: "Paket Reguler A" },
             { type: "makanan", img: "media/galeri/prasmanan-2.jpg", title: "Paket Platinum E" },
