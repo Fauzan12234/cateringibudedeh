@@ -1,9 +1,8 @@
 // script.js - Full functionality with menu pagination, cart, and gallery collage with pagination & modal
 document.addEventListener('DOMContentLoaded', () => {
-    // ========== 1. NAVBAR SCROLL EFFECT (HANYA UNTUK INDEX.HTML) ==========
+    // ========== 1. NAVBAR SCROLL EFFECT ==========
     const nav = document.getElementById('main-nav');
     if (nav) {
-        // Cek posisi awal saat load (penting jika di-refresh di tengah halaman)
         if (window.scrollY > 50) {
             nav.classList.add('scrolled');
         }
@@ -27,13 +26,11 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     const currentKey = pageMap[currentPage] || 'index';
     
-    // Set active link untuk desktop (khusus index.html, jika ada class .nav-link)
     document.querySelectorAll('.nav-link').forEach(link => {
         if (link.getAttribute('data-page') === currentKey) {
             link.classList.add('active');
         }
     });
-    // Set active link untuk mobile
     document.querySelectorAll('.nav-link-mobile').forEach(link => {
         if (link.getAttribute('data-page') === currentKey) {
             link.classList.add('active');
@@ -47,7 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileMenuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
-        // Tutup menu saat link diklik
         mobileMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
@@ -107,7 +103,6 @@ document.addEventListener('DOMContentLoaded', () => {
             cartBadge.classList.remove('hidden'); 
         }
         
-        // Bind event hapus
         document.querySelectorAll('.remove-item').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const idx = parseInt(btn.currentTarget.dataset.index);
@@ -156,7 +151,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeModalBtn = document.getElementById('close-modal-btn');
     if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
 
-    // Fungsi Tambah ke Keranjang
     function addToCart(name, price) {
         const existing = cart.find(item => item.name === name);
         if (existing) existing.qty++;
@@ -210,32 +204,46 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ========== MENU DATA ==========
+    // ========== MENU DATA (DIPERBARUI MENDUKUNG 2 GAMBAR SLIDER) ==========
     const menuItems = [
-        { name: "Paket Reguler A", category: "prasmanan", price: 41000, desc: "Nasi, Ayam Goreng/Bakar, Tahu Tempe, Lalapan, Sambel, Kerupuk", img: "media/menu/prasmanan/reguler-a.jpg" },
-        { name: "Paket Reguler B", category: "prasmanan", price: 42000, desc: "Nasi, Ayam Goreng/Bakar, Capcay, Tahu Tempe, Lalapan, Sambel", img: "media/menu/prasmanan/reguler-b.jpg" },
-        { name: "Paket Reguler C", category: "prasmanan", price: 50000, desc: "Nasi, Ayam Bakar/Goreng, Ikan Asin, Tahu Tempe, Lalapan, Sambel", img: "media/menu/prasmanan/reguler-c.jpg" },
-        { name: "Paket Reguler D", category: "prasmanan", price: 58000, desc: "Nasi, Ayam Bakar, Ikan Asin, Tahu Tempe, Sayur Asem, Sambel", img: "media/menu/prasmanan/reguler-d.jpg" },
-        { name: "Paket Platinum E", category: "prasmanan", price: 80000, desc: "Nasi, Ayam Bakakak, Ikan Nila Bakar, Tahu Tempe, Urap, Sambel", img: "media/menu/prasmanan/platinum-e.jpg" },
-        { name: "Paket Platinum F", category: "prasmanan", price: 90000, desc: "Nasi, Ayam Bakakak, Ikan Gurame Bakar, Tahu Tempe, Sayur Asem, Sambel", img: "media/menu/prasmanan/platinum-f.jpg" },
-        { name: "Paket Platinum G", category: "prasmanan", price: 99000, desc: "Nasi, Ayam Bakakak, Udang Bakar, Tahu Tempe, Sayur Asem, Sambel", img: "media/menu/prasmanan/platinum-g.jpg" },
-        { name: "Nasi Box Kardus", category: "nasibox", price: 25000, desc: "Nasi, Ayam Bakar/Goreng, Tempe/Tahu, Lalapan, Sambel", img: "media/menu/nasibox/kardus.jpg" },
-        { name: "Nasi Box Kardus Daging", category: "nasibox", price: 30000, desc: "Nasi, Daging Capcay, Kentang Balado, Sambel, Kerupuk", img: "media/menu/nasibox/kardus-daging.jpg" },
-        { name: "Nasi Box Besek Premium", category: "nasibox", price: 40000, desc: "Nasi, Ayam Bakar, Tahu Tempe, Ikan Asin, Cumi, Lalapan", img: "media/menu/nasibox/besek-premium.jpg" },
-        { name: "Nasi Box Besek Bambu Premium", category: "nasibox", price: 45000, desc: "Nasi Liwet Teri, Ayam Goreng, Tempe Tahu, Ikan Teri, Lalapan", img: "media/menu/nasibox/besek-bambu.jpg" },
-        { name: "Nasi Box Ayam Bakar Taliwang", category: "nasibox", price: 30000, desc: "Nasi, Ayam Bakar Taliwang, Bacem Tempe, Lalapan, Sambel", img: "media/menu/nasibox/taliwang.jpg" },
-        { name: "Tumpeng Reguler", category: "tumpengan", price: 300000, desc: "Tumpeng Reguler 10 pax: Rp 350.000, 20 pax: Rp 700.000", img: "media/menu/tumpengan/reguler.jpg" },
-        { name: "Tumpeng Premium", category: "tumpengan", price: 400000, desc: "Tumpeng Premium 10 pax: Rp 400.000, 20 pax: Rp 800.000", img: "media/menu/tumpengan/premium.jpg" },
-        { name: "Liwetan Tampah", category: "tumpengan", price: 30000, desc: "Liwetan Tampah 10 pax: Rp 400.000, 20 pax: Rp 800.000", img: "media/menu/tumpengan/liwetan.jpg" },
-        { name: "Tumpeng Mini", category: "paket_unik", price: 30000, desc: "Nasi Kuning, Ayam Bakar/Goreng, Perkedel Kentang, Sambel", img: "media/menu/paket_unik/tumpeng-mini.jpg" },
-        { name: "Paket Bento", category: "paket_unik", price: 25000, desc: "Nasi, Ayam Bakar, Tempe Tahu, Lalapan, Sambel", img: "media/menu/paket_unik/bento.jpg" },
-        { name: "Rice Bowl Birthday", category: "paket_unik", price: 20000, desc: "Nasi Kuning, Chicken Nugget, Mie Goreng, Telur Dadar", img: "media/menu/paket_unik/rice-bowl.jpg" },
-        { name: "Aqiqah Reguler Laki-Laki", category: "aqiqah", price: 4800000, desc: "2 kambing betina, 100 pax, lengkap dengan nasi box", img: "media/menu/aqiqah/reguler-laki.jpg" },
-        { name: "Aqiqah Reguler Perempuan", category: "aqiqah", price: 2600000, desc: "1 kambing betina, 50 pax, lengkap dengan nasi box", img: "media/menu/aqiqah/reguler-perempuan.jpg" },
-        { name: "Aqiqah Premium Laki-Laki", category: "aqiqah", price: 5500000, desc: "2 kambing betina, 100 pax, menu premium", img: "media/menu/aqiqah/premium-laki.jpg" },
-        { name: "Aqiqah Premium Perempuan", category: "aqiqah", price: 3000000, desc: "1 kambing betina, 50 pax, menu premium", img: "media/menu/aqiqah/premium-perempuan.jpg" },
-        { name: "Paket Snack Box", category: "snack", price: 25000, desc: "Kue basah & kering pilihan, air mineral", img: "media/menu/snack/snack-box.jpg" },
-        { name: "Paket Snack Premium", category: "snack", price: 35000, desc: "Pastry, pudding, buah, jus", img: "media/menu/snack/snack-premium.jpg" },
+        // Prasmanan (Tanpa detail)
+        { name: "Paket Reguler A", category: "prasmanan", price: 41000, desc: "Nasi, Ayam Goreng/Bakar, Tahu Tempe, Lalapan, Sambel, Kerupuk", imgMain: "media/menu/prasmanan/reguler-a.jpg", imgDetail: null },
+        { name: "Paket Reguler B", category: "prasmanan", price: 42000, desc: "Nasi, Ayam Goreng/Bakar, Capcay, Tahu Tempe, Lalapan, Sambel", imgMain: "media/menu/prasmanan/reguler-b.jpg", imgDetail: null },
+        { name: "Paket Reguler C", category: "prasmanan", price: 50000, desc: "Nasi, Ayam Bakar/Goreng, Ikan Asin, Tahu Tempe, Lalapan, Sambel", imgMain: "media/menu/prasmanan/reguler-c.jpg", imgDetail: null },
+        { name: "Paket Reguler D", category: "prasmanan", price: 58000, desc: "Nasi, Ayam Bakar, Ikan Asin, Tahu Tempe, Sayur Asem, Sambel", imgMain: "media/menu/prasmanan/reguler-d.jpg", imgDetail: null },
+        { name: "Paket Platinum E", category: "prasmanan", price: 80000, desc: "Nasi, Ayam Bakakak, Ikan Nila Bakar, Tahu Tempe, Urap, Sambel", imgMain: "media/menu/prasmanan/platinum-e.jpg", imgDetail: null },
+        { name: "Paket Platinum F", category: "prasmanan", price: 90000, desc: "Nasi, Ayam Bakakak, Ikan Gurame Bakar, Tahu Tempe, Sayur Asem, Sambel", imgMain: "media/menu/prasmanan/platinum-f.jpg", imgDetail: null },
+        { name: "Paket Platinum G", category: "prasmanan", price: 99000, desc: "Nasi, Ayam Bakakak, Udang Bakar, Tahu Tempe, Sayur Asem, Sambel", imgMain: "media/menu/prasmanan/platinum-g.jpg", imgDetail: null },
+        
+        // Nasi Box (Diperbarui dengan detail)
+        { name: "Paket Hemat Styrofoam", category: "nasibox", price: 22000, desc: "Nasi, Ayam bakar/goreng, Tempe, Lalapan, Sambel", imgMain: "media/menu/nasibox/hemat-styrofoam.jpg", imgDetail: "media/menu/nasibox/hemat-styrofoam-detail.png" },
+        { name: "Nasi Box Reguler Paket 2", category: "nasibox", price: 27000, desc: "Nasi liwet bakar, Ayam Bakar, tempe/tahu, Lalapan, Sambel", imgMain: "media/menu/nasibox/reguler-2.jpg", imgDetail: "media/menu/nasibox/reguler-2-detail.png" },
+        { name: "Nasi Box Reguler Paket 3", category: "nasibox", price: 30000, desc: "Nasi, Daging capcay, kentang balado, Sambel, Kerupuk", imgMain: "media/menu/nasibox/reguler-3.jpg", imgDetail: "media/menu/nasibox/reguler-3-detail.png" },
+        { name: "Nasi Besek Premium Paket 1", category: "nasibox", price: 30000, desc: "Nasi Putih, Ayam Bakar, Tempe, Tahu, Lalapan, Sambel", imgMain: "media/menu/nasibox/besek-premium-1.jpg", imgDetail: "media/menu/nasibox/besek-premium-1-detail.jpg" },
+        { name: "Nasi Besek Premium Paket 2", category: "nasibox", price: 35000, desc: "Nasi Bakar, Ayam Bakar, Tempe, Tahu, Lalapan, Sambel, Kerupuk", imgMain: "media/menu/nasibox/besek-premium-2.jpg", imgDetail: "media/menu/nasibox/besek-premium-2-detail.jpg" },
+        { name: "Nasi Besek Premium Paket 3", category: "nasibox", price: 40000, desc: "Nasi, Ayam Bakar, Tempe, Tahu, Ikan Asin cumi, Lalapan, Sambel", imgMain: "media/menu/nasibox/besek-premium-3.jpg", imgDetail: "media/menu/nasibox/besek-premium-3-detail.jpg" },
+        { name: "Nasi Besek Premium Paket 4", category: "nasibox", price: 40000, desc: "Nasi liwet teri, Ayam Goreng, Tempe, Tahu, Ikan teri balado, Telur asin, Lalapan, Sambel", imgMain: "media/menu/nasibox/besek-premium-4.jpg", imgDetail: "media/menu/nasibox/besek-premium-4-detail.jpg" },
+        
+        // Tumpengan (Diperbarui dengan detail)
+        { name: "Paket Tumpeng Reguler", category: "tumpengan", price: 350000, desc: "10 pax: Rp 350.000 | 20 pax: Rp 650.000 | 30 pax: Rp 950.000", imgMain: "media/menu/tumpengan/reguler-1.jpg", imgDetail: "media/menu/tumpengan/reguler-1-detail.png" },
+        { name: "Tumpeng Premium Paket 1", category: "tumpengan", price: 400000, desc: "10 pax: Rp 400.000 | 20 pax: Rp 800.000 | 30 pax: Rp 1.150.000", imgMain: "media/menu/tumpengan/premium-1.jpg", imgDetail: "media/menu/tumpengan/premium-1-detail.jpg" },
+        { name: "Tumpeng Premium Paket 2", category: "tumpengan", price: 400000, desc: "10 pax: Rp 400.000 | 20 pax: Rp 800.000 | 30 pax: Rp 1.150.000", imgMain: "media/menu/tumpengan/premium-2.jpg", imgDetail: "media/menu/tumpengan/premium-2-detail.jpg" },
+        { name: "Tumpeng Premium Paket 3", category: "tumpengan", price: 400000, desc: "10 pax: Rp 400.000 | 20 pax: Rp 800.000 | 30 pax: Rp 1.150.000", imgMain: "media/menu/tumpengan/premium-3.jpg", imgDetail: "media/menu/tumpengan/premium-3-detail.jpg" },
+        { name: "Liwetan Tampah Paket 1", category: "tumpengan", price: 400000, desc: "10 pax: Rp 400.000 | 20 pax: Rp 800.000 | 30 pax: Rp 1.200.000", imgMain: "media/menu/tumpengan/liwetan-1.jpg", imgDetail: "media/menu/tumpengan/liwetan-1-detail.png" },
+        { name: "Liwetan Tampah Paket 2", category: "tumpengan", price: 400000, desc: "10 pax: Rp 400.000 | 20 pax: Rp 800.000 | 30 pax: Rp 1.200.000", imgMain: "media/menu/tumpengan/liwetan-2.jpg", imgDetail: "media/menu/tumpengan/liwetan-2-detail.png" },
+        
+        // Paket Unik (Diperbarui dengan detail)
+        { name: "Paket Tumpeng Mini", category: "paket_unik", price: 30000, desc: "Nasi kuning, Ayam Bakar/Goreng, Perkedel kentang, Telur balado, Kering tempe, Mie goreng", imgMain: "media/menu/paket_unik/tumpeng-mini.jpg", imgDetail: "media/menu/paket_unik/tumpeng-mini-detail.png" },
+        
+        // Aqiqah (Tanpa detail)
+        { name: "Aqiqah Reguler Laki-Laki", category: "aqiqah", price: 4800000, desc: "2 kambing betina, 100 pax, lengkap dengan nasi box", imgMain: "media/menu/aqiqah/reguler-laki.jpg", imgDetail: null },
+        { name: "Aqiqah Reguler Perempuan", category: "aqiqah", price: 2600000, desc: "1 kambing betina, 50 pax, lengkap dengan nasi box", imgMain: "media/menu/aqiqah/reguler-perempuan.jpg", imgDetail: null },
+        { name: "Aqiqah Premium Laki-Laki", category: "aqiqah", price: 5500000, desc: "2 kambing betina, 100 pax, menu premium", imgMain: "media/menu/aqiqah/premium-laki.jpg", imgDetail: null },
+        { name: "Aqiqah Premium Perempuan", category: "aqiqah", price: 3000000, desc: "1 kambing betina, 50 pax, menu premium", imgMain: "media/menu/aqiqah/premium-perempuan.jpg", imgDetail: null },
+        
+        // Snack (Tanpa detail)
+        { name: "Paket Snack Box", category: "snack", price: 25000, desc: "Kue basah & kering pilihan, air mineral", imgMain: "media/menu/snack/snack-box.jpg", imgDetail: null },
+        { name: "Paket Snack Premium", category: "snack", price: 35000, desc: "Pastry, pudding, buah, jus", imgMain: "media/menu/snack/snack-premium.jpg", imgDetail: null },
     ];
 
     const categories = [...new Set(menuItems.map(item => item.category))];
@@ -285,10 +293,31 @@ document.addEventListener('DOMContentLoaded', () => {
         const start = (currentPageNum - 1) * itemsPerPage;
         const paginatedItems = filtered.slice(start, start + itemsPerPage);
         
-        menuGrid.innerHTML = paginatedItems.map(item => `
+        menuGrid.innerHTML = paginatedItems.map((item, idx) => {
+            // Setup slider elements if imgDetail exists
+            const imageContent = `
+                <div class="flex overflow-x-auto snap-x snap-mandatory h-full w-full no-scrollbar scroll-smooth" id="slider-${idx}">
+                    <div class="w-full h-full flex-shrink-0 snap-center relative img-preview cursor-pointer" data-img="${item.imgMain}">
+                        <img src="${item.imgMain}" alt="${item.name}" onerror="this.src='https://placehold.co/600x400?text=Foto+Menu'" class="w-full h-full object-cover">
+                        ${item.imgDetail ? `
+                            <button onclick="document.getElementById('slider-${idx}').scrollBy({left: 300, behavior: 'smooth'}); event.stopPropagation();" class="absolute top-1/2 right-2 -translate-y-1/2 bg-black/40 text-white p-1 rounded-full hover:bg-black/60 z-10 hidden md:block"><span class="material-symbols-outlined text-sm">chevron_right</span></button>
+                            <div class="absolute bottom-2 right-2 bg-black/60 text-white text-[10px] px-2 py-0.5 rounded-md pointer-events-none">Lihat Detail &raquo;</div>
+                        ` : ''}
+                    </div>
+                    
+                    ${item.imgDetail ? `
+                    <div class="w-full h-full flex-shrink-0 snap-center relative img-preview cursor-pointer bg-surface-container-low" data-img="${item.imgDetail}">
+                        <img src="${item.imgDetail}" alt="Detail ${item.name}" onerror="this.src='https://placehold.co/600x400?text=Katalog+Detail'" class="w-full h-full object-contain p-2">
+                        <button onclick="document.getElementById('slider-${idx}').scrollBy({left: -300, behavior: 'smooth'}); event.stopPropagation();" class="absolute top-1/2 left-2 -translate-y-1/2 bg-black/40 text-white p-1 rounded-full hover:bg-black/60 z-10 hidden md:block"><span class="material-symbols-outlined text-sm">chevron_left</span></button>
+                    </div>
+                    ` : ''}
+                </div>
+            `;
+
+            return `
             <div class="menu-card">
-                <div class="img-container cursor-pointer img-preview" data-img="${item.img}">
-                    <img src="${item.img}" alt="${item.name}" onerror="this.src='https://placehold.co/600x400?text=No+Image'">
+                <div class="img-container relative group">
+                    ${imageContent}
                 </div>
                 <div class="card-content">
                     <div class="title-price">
@@ -302,12 +331,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     </button>
                 </div>
             </div>
-        `).join('');
+            `;
+        }).join('');
         
         bindAddToCartButtons();
         
+        // Bind Modal Previews
         document.querySelectorAll('#menu-grid .img-preview').forEach(el => {
-            el.addEventListener('click', () => {
+            el.addEventListener('click', (e) => {
+                // Prevent clicking buttons from triggering modal
+                if(e.target.tagName.toLowerCase() === 'button' || e.target.closest('button')) return;
                 const imgSrc = el.getAttribute('data-img');
                 const modalImg = document.getElementById('modal-image');
                 if (modalImg) {
