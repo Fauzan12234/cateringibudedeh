@@ -1,8 +1,9 @@
 // script.js - Full functionality with menu pagination, cart, and gallery collage with pagination & modal
 document.addEventListener('DOMContentLoaded', () => {
-    // ========== 1. NAVBAR SCROLL EFFECT ==========
+    // ========== 1. NAVBAR SCROLL EFFECT (HANYA UNTUK INDEX.HTML) ==========
     const nav = document.getElementById('main-nav');
     if (nav) {
+        // Cek posisi awal saat load (penting jika di-refresh di tengah halaman)
         if (window.scrollY > 50) {
             nav.classList.add('scrolled');
         }
@@ -26,11 +27,13 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     const currentKey = pageMap[currentPage] || 'index';
     
+    // Set active link untuk desktop (khusus index.html, jika ada class .nav-link)
     document.querySelectorAll('.nav-link').forEach(link => {
         if (link.getAttribute('data-page') === currentKey) {
             link.classList.add('active');
         }
     });
+    // Set active link untuk mobile
     document.querySelectorAll('.nav-link-mobile').forEach(link => {
         if (link.getAttribute('data-page') === currentKey) {
             link.classList.add('active');
@@ -44,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileMenuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
+        // Tutup menu saat link diklik
         mobileMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
@@ -103,6 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cartBadge.classList.remove('hidden'); 
         }
         
+        // Bind event hapus
         document.querySelectorAll('.remove-item').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const idx = parseInt(btn.currentTarget.dataset.index);
@@ -151,6 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeModalBtn = document.getElementById('close-modal-btn');
     if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
 
+    // Fungsi Tambah ke Keranjang
     function addToCart(name, price) {
         const existing = cart.find(item => item.name === name);
         if (existing) existing.qty++;
@@ -243,7 +249,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (filterContainer) {
         let html = `<button data-filter="all" class="filter-btn silk-gradient text-white shadow-lg shadow-primary/20 hover:scale-105">Semua Menu</button>`;
         categories.forEach(cat => {
-            html += `<button data-filter="${cat}" class="filter-btn bg-white text-on-surface-variant hover:bg-surface-container-highest shadow-sm">${categoryNames[cat] || cat}</button>`;
+            html += `<button data-filter="${cat}" class="filter-btn bg-white text-on-surface-variant hover:bg-surface-container-highest transition-all shadow-sm">${categoryNames[cat] || cat}</button>`;
         });
         filterContainer.innerHTML = html;
         
@@ -342,7 +348,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // ========== GALERI PAGE ==========
     const galleryGrid = document.getElementById('gallery-grid');
     if (galleryGrid) {
-        // Data Galeri Dikembalikan Menggunakan Tipe: Makanan & Acara
         const galleryItems = [
             { type: "makanan", img: "media/galeri/prasmanan-1.jpg", title: "Paket Reguler A" },
             { type: "makanan", img: "media/galeri/prasmanan-2.jpg", title: "Paket Platinum E" },
@@ -413,7 +418,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="gallery-item cursor-pointer" data-img="${item.img}">
                         <img src="${item.img}" alt="${item.title}" onerror="this.src='https://placehold.co/600x400?text=No+Image'">
                         <div class="gallery-overlay">
-                            <span class="text-yellow-500 font-bold uppercase tracking-wider">${galleryCategoryLabels[item.type]}</span>
+                            <span class="text-yellow-500 font-bold uppercase tracking-wider">${item.type === 'makanan' ? 'Makanan' : 'Acara'}</span>
                             <h3 class="text-white font-headline text-lg md:text-xl">${item.title}</h3>
                         </div>
                     </div>
